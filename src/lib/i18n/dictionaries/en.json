@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "siteTitle": "Asmaa Salem | Specialized Life Coach",
+    "siteDescription": "Uncover the profound messages hidden within your emotions and physical symptoms with Asmaa Salem, a specialized life coach. Through a scientific methodology utilizing the Luscher Color Test and Meta-Health, embark on a transformative journey towards holistic well-being."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Certifications & Biography",
+    "instructors": "Luscher Support Platform",
+    "testimonials": "Testimonials",
+    "contact": "Reach Out",
+    "languageToggle": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+  },
+  "home": {
+    "hero": {
+      "title": "Colors are the mirror to your tapestry of emotions.... Rediscover yourself and uncover the root of your illnesses with the L\u00fcscher Color Diagnostic Test and Meta-Health",
+      "subtitle": "Uncover the profound messages hidden within your emotions and physical symptoms with Asmaa Salem, a specialized life coach. Through a scientific methodology utilizing the L\u00fcscher Color Test and Meta-Health, you'll delve into the roots of your emotional and physical stress to embark on a transformative journey towards holistic well-being",
+      "ctaText": "Book Your Session Now!"
+    },
+    "metahealth": {
+      "title": "What is Meta-Health?",
+      "paragraphs": [
+        "Meta-Health teaches that illness is never random\u2014it is always a reflection of an internal conflict between the mind and body. When a person experiences disease, it is often the result of a specific unresolved emotional disturbance. These symptoms act as messages from the body, pointing us toward what needs healing within.",
+        "There is something invisible within us\u2014our thoughts and emotions\u2014that has the power to trigger a specific biological response in the body. Every emotion we experience sends a signal through the nervous system, and over time, unresolved emotional patterns can manifest as physical symptoms.",
+        "In a healthy emotional state, when we feel something, we naturally do one of two things: either we fully experience and release that feeling, or we let it pass on its own. This process is similar to breathing: feeling emotions is like inhaling, and letting go is like exhaling. It is a natural, continuous cycle that keeps us in balance.",
+        "But sometimes, we unconsciously hold on to emotions, unable to process or release them. These suppressed emotions can settle anywhere in the body, disrupting its natural energy flow. Since our bodies are made of vibrational energy, trapped emotions disturb that natural vibration, eventually leading to physical symptoms and illness."
+      ]
+    },
+    "luscher": {
+      "title": "The L\u00fcscher Color Test",
+      "paragraphs": [
+        "The L\u00fcscher Color Test is a psychological tool developed over 70 years ago by Dr. Max L\u00fcscher\u2014a Swiss doctor, psychotherapist, university professor, psychologist, psychiatrist, and an author. L\u00fcscher's innovative approach uses color selection as a gateway into the emotional world, bypassing the need for direct questioning and allowing clients to reveal their inner states naturally through their color preferences.",
+        "What makes Dr. L\u00fcscher's work so groundbreaking is the level of psychological depth he encoded into the color test templates. It explores a complex network of human emotions, including: overall mood, conscious emotions, expected behaviors, personality traits, emotions toward relationships, self-perception, feelings toward responsibilities and tasks, and emotional outlook on the future.",
+        "The test also pinpoints areas of tension in daily life, reveals hidden sources of frustration, highlights coping strategies, and offers powerful insight into the motivations behind behavior."
+      ]
+    },
+    "services": {
+      "title": "Choose the service that fits your needs\u2026 Three innovative solutions at your fingertips",
+      "items": [
+        {
+          "title": "Emotional Analysis through the L\u00fcscher Color Diagnostic Test",
+          "description": "Understand your deeper emotions, the roots of your stress and imbalances, your daily challenges, and your psychological needs through a focused analysis session using the Max L\u00fcscher Color Test."
+        },
+        {
+          "title": "L\u00fcscher Test & Emotional Root Cause for Illnesses (Meta-Health)",
+          "description": "Specialized sessions designed to help you uncover the emotional root causes of illness and gain deep insight into your feelings through the L\u00fcscher Color Diagnostic Test."
+        },
+        {
+          "title": "L\u00fcscher Support Platform",
+          "description": "Access my dedicated platform designed to support certified L\u00fcscher students and practitioners in efficiently and accurately analyzing the L\u00fcscher Color Test. Benefit from a variety of insights and interpretations drawn from multiple trusted sources to enhance the depth and quality of your test results."
+        }
+      ]
+    },
+    "cta": {
+      "title": "It's time to take control of your life",
+      "description": "Through the Max L\u00fcscher Color Test, we'll take a journey together\u2014one that helps you discover yourself and uncover the emotions and thoughts hidden in your subconscious. With the support of Meta-Health, I'll help you identify the emotional and mental imbalances that may be contributing to your physical and psychological symptoms.",
+      "joinTitle": "Join me now on your own personal journey of transformation",
+      "buttonText": "Book Your Session Now!"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Asmaa Mohammed Salem",
+      "subtitle": "Specialised Life Coach \u2013 Using the L\u00fcscher Color Test and Meta-Health Approach",
+      "quote": "Your remedy is within you, yet you do not sense it\u2026 and your illness comes from you, yet you do not see it."
+    },
+    "bio": {
+      "paragraphs": [
+        "Throughout my professional and personal journey, I've been committed to expanding my knowledge and developing a diverse skill set that bridges management, psychotherapy, and personal development. Below are the key certifications and accredited courses I've completed in support of my vision to empower individuals and help them achieve balance in their lives."
+      ]
+    },
+    "credentials": [
+      {
+        "title": "Bachelor's Degree in Computer Science",
+        "institution": "",
+        "description": "Foundational degree in computer science providing a strong analytical and technical background."
+      },
+      {
+        "title": "Certified Project Management Professional (PMP)",
+        "institution": "Project Management Institute (PMI)",
+        "description": "Professional certification in project management from the globally recognized Project Management Institute."
+      },
+      {
+        "title": "L\u00fcscher Color Diagnostic Test Certification",
+        "institution": "Max L\u00fcscher Institute, Switzerland",
+        "description": "The L\u00fcscher Color Diagnostic Test goes beyond traditional questioning methods, offering a precise and profound exploration of a client's emotional world. It identifies stress sources and illuminates emotions across various life dimensions, guiding individuals toward self-awareness and emotional balance."
+      },
+      {
+        "title": "Master's Degree \u2013 Meta-Health & Color Therapy",
+        "institution": "Manage the Now Academy (MTN)",
+        "description": "Diagnosing using Color Therapy and Application of Organic and Psychological Meta-Health."
+      },
+      {
+        "title": "Master's Degree \u2013 Holistic Healing by Color Therapy",
+        "institution": "Arab Academy of Behavioral Science (ABS)",
+        "description": "Specialized studies focused on holistic healing through color therapy methodologies."
+      },
+      {
+        "title": "Life Coach Diploma",
+        "institution": "Academy of Modern Applied Psychology",
+        "description": "Mental Health & Wellness specialization, providing professional coaching skills for supporting individuals on their personal development journeys."
+      }
+    ],
+    "careerStory": {
+      "title": "Why did I choose to shift from Project Management to Meta-Health and Emotional Science?",
+      "paragraphs": [
+        "In truth, there isn't a vast difference between the two paths. In project management, I was overseeing external projects in the outer world. Now, I guide the management of thoughts and emotions within the inner world of the human being. While both involve elements of structure and direction, I came to realize that managing emotions and thoughts\u2014along with understanding the intricate mind-body mechanisms behind them\u2014has a far deeper impact on my own life and the lives of those around me.",
+        "Lifelong learning is a cornerstone of my journey. I believe that knowledge has no ceiling and no age limit. This continuous exploration has become a rewarding and joyful path for me\u2014one I hope brings the same value and inspiration to those who choose to walk it with me."
+      ]
+    },
+    "cta": {
+      "title": "Ready to book your session or have a question? Get in touch today and begin your journey of transformation now",
+      "buttonText": "Book Your Session Now"
+    }
+  },
+  "instructors": {
+    "hero": {
+      "title": "L\u00fcscher Support Platform",
+      "description": "A smart platform that takes the hassle out of L\u00fcscher Test analysis\u2026 Try it and save hours of effort in just minutes!"
+    },
+    "intro": "This platform automates L\u00fcscher Color Test analysis, drawing from L\u00fcscher's official books, my training at Manage the Now Academy (MTN), and the Arab Academy of Behavioral Sciences.",
+    "phases": [
+      {
+        "number": 1,
+        "title": "Data Entry",
+        "description": "You will receive a custom-designed Google Form to collect essential client data\u2014such as name, age, and gender\u2014along with their color selections based on the official test protocol."
+      },
+      {
+        "number": 2,
+        "title": "L\u00fcscher Test Sheet",
+        "description": "Results display across two pages: Page 1 presents official L\u00fcscher Institute protocol codes with tension points based on the weight of each code. Page 2 provides advanced interpretation with additional unique codes, each representing a distinct psychological meaning."
+      },
+      {
+        "number": 3,
+        "title": "Individual Color Analysis",
+        "description": "Each color included in the test is given its own dedicated page covering psychological meanings, acceptance and rejection contexts, conscious and unconscious needs, and stress impact."
+      },
+      {
+        "number": 4,
+        "title": "Comprehensive Report",
+        "description": "An automated report that includes the overall psychological state, key stress points, emotional needs, and color-specific therapeutic suggestions."
+      }
+    ],
+    "cta": {
+      "title": "Are you ready to experience the power of this platform for yourself?",
+      "buttonText": "Begin Your Trial Now!"
+    }
+  },
+  "testimonials": {
+    "hero": {
+      "title": "Success Stories from My Clients"
+    },
+    "items": [
+      {
+        "name": "Latifa Souliman",
+        "quote": "Your sessions have truly been life-changing. Through the colour test, you helped me understand myself better and identify the roots of my anxiety and depression."
+      },
+      {
+        "name": "Jade J",
+        "quote": "The color test revealed more than mere words can do, and the way Asmaa handled the information that resurfaced was in kindness and professionalism."
+      },
+      {
+        "name": "Ann D.",
+        "quote": "What took me by surprise is that after the color tests, she pointed out some really specific views and thoughts I have that she really could not have known about."
+      },
+      {
+        "name": "Farah / Joy",
+        "quote": "Despite doing only 2 sessions, I was able to understand many big and intense things about myself that no other form of coaching, counseling, or therapy was able to unearth."
+      },
+      {
+        "name": "M.S.",
+        "quote": "Asmaa's Meta Health analysis has helped me uncover the exact emotional states that have kept me in this perpetual cycle."
+      },
+      {
+        "name": "L.S.",
+        "quote": "When Asmaa explained the analysis, many aspects of my life & personality changed and I became more able to understand the personalities and circumstances I go through in my life."
+      }
+    ],
+    "cta": {
+      "title": "Join me now on your own personal journey of transformation",
+      "buttonText": "Book Your Session Now!"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Reach Out",
+      "description": "Ready to book your session or have a question? Contact us now and begin your journey toward healing"
+    },
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phoneLabel": "Phone (optional)",
+      "phonePlaceholder": "Enter your phone number",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your message here",
+      "submitText": "Send",
+      "successMessage": "Your message was sent successfully! We'll get back to you soon.",
+      "errorMessage": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "\u00a9 2025 asmaasalem.com. All rights reserved.",
+    "tagline": "Asmaa Salem \u2013 Specialized Life Coach"
+  },
+  "common": {
+    "bookNow": "Book Your Session Now!",
+    "learnMore": "Learn More",
+    "backToTop": "Back to Top",
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "close": "Close"
+  }
+}
