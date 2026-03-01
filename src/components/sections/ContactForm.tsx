@@ -73,11 +73,13 @@ export function ContactForm({ form }: ContactFormProps) {
 
   if (status === 'success') {
     return (
-      <section className="py-[var(--spacing-section)]">
+      <section className="py-[var(--spacing-section)] bg-cream">
         <Container narrow>
-          <div className="rounded-2xl bg-green-50 p-8 text-center">
-            <div className="mb-4 text-4xl">&#10003;</div>
-            <p className="text-lg font-medium text-green-800">{form.successMessage}</p>
+          <div className="rounded-2xl bg-white p-8 md:p-12 text-center shadow-[var(--shadow-md)]">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-accent)]/10">
+              <svg className="h-8 w-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p className="text-lg font-medium text-charcoal">{form.successMessage}</p>
           </div>
         </Container>
       </section>
@@ -85,55 +87,59 @@ export function ContactForm({ form }: ContactFormProps) {
   }
 
   return (
-    <section className="py-[var(--spacing-section)]">
+    <section className="py-[var(--spacing-section)] bg-cream">
       <Container narrow>
         <ScrollReveal>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Honeypot */}
-            <div className="hidden" aria-hidden="true">
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" />
-            </div>
+          <div className="rounded-2xl bg-white p-8 md:p-12 shadow-[var(--shadow-md)]">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot */}
+              <div className="hidden" aria-hidden="true">
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+              </div>
 
-            <Input
-              label={form.nameLabel}
-              name="name"
-              placeholder={form.namePlaceholder}
-              error={errors.name}
-              required
-            />
+              <Input
+                label={form.nameLabel}
+                name="name"
+                placeholder={form.namePlaceholder}
+                error={errors.name}
+                required
+              />
 
-            <Input
-              label={form.emailLabel}
-              name="email"
-              type="email"
-              placeholder={form.emailPlaceholder}
-              error={errors.email}
-              required
-            />
+              <Input
+                label={form.emailLabel}
+                name="email"
+                type="email"
+                placeholder={form.emailPlaceholder}
+                error={errors.email}
+                required
+              />
 
-            <Input
-              label={form.phoneLabel}
-              name="phone"
-              type="tel"
-              placeholder={form.phonePlaceholder}
-            />
+              <Input
+                label={form.phoneLabel}
+                name="phone"
+                type="tel"
+                placeholder={form.phonePlaceholder}
+              />
 
-            <Textarea
-              label={form.messageLabel}
-              name="message"
-              placeholder={form.messagePlaceholder}
-              error={errors.message}
-              required
-            />
+              <Textarea
+                label={form.messageLabel}
+                name="message"
+                placeholder={form.messagePlaceholder}
+                error={errors.message}
+                required
+              />
 
-            {status === 'error' && (
-              <p className="text-sm text-red-500">{form.errorMessage}</p>
-            )}
+              {status === 'error' && (
+                <p className="text-sm text-red-500">{form.errorMessage}</p>
+              )}
 
-            <Button type="submit" variant="primary" size="large" disabled={status === 'loading'}>
-              {status === 'loading' ? '...' : form.submitText}
-            </Button>
-          </form>
+              <Button type="submit" variant="primary" size="large" disabled={status === 'loading'}>
+                {status === 'loading' ? (
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                ) : form.submitText}
+              </Button>
+            </form>
+          </div>
         </ScrollReveal>
       </Container>
     </section>

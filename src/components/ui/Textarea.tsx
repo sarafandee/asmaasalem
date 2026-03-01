@@ -17,8 +17,8 @@ export function Textarea({ label, error, className, id, ...props }: TextareaProp
         id={textareaId}
         rows={5}
         className={clsx(
-          'w-full rounded-lg border border-gray/50 bg-white px-4 py-3 text-base text-charcoal transition-colors duration-200 resize-none',
-          'placeholder:text-gray focus:border-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20',
+          'w-full rounded-lg border-0 bg-cream px-4 py-3 text-base text-charcoal transition-all duration-200 resize-none',
+          'placeholder:text-gray focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/30',
           error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
           className
         )}

@@ -18,9 +18,13 @@ interface HeaderProps {
   locale: Locale;
   navItems: NavItem[];
   languageToggleName: string;
+  authButton: {
+    label: string;
+    href: string;
+  };
 }
 
-export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
+export function Header({ locale, navItems, languageToggleName, authButton }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -42,8 +46,8 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
         className={clsx(
           'fixed top-0 start-0 end-0 z-40 transition-all duration-500',
           scrolled
-            ? 'bg-charcoal/95 backdrop-blur-sm shadow-lg'
-            : 'bg-charcoal'
+            ? 'bg-white/95 backdrop-blur-sm shadow-[var(--shadow-md)] border-b border-charcoal/5'
+            : 'bg-white'
         )}
       >
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-3 md:px-8">
@@ -68,10 +72,10 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   className={clsx(
-                    'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200',
+                    'rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200',
                     isActive
-                      ? 'text-[var(--color-accent)]'
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/5'
+                      : 'text-charcoal/70 hover:text-charcoal hover:bg-charcoal/5'
                   )}
                 >
                   {item.label}
@@ -80,9 +84,15 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
             })}
             <Link
               href={toggleHref}
-              className="ms-2 rounded-full border border-white/30 px-4 py-1.5 text-sm text-white/80 transition-colors duration-200 hover:border-white hover:text-white"
+              className="ms-2 rounded-full border border-charcoal/20 px-4 py-1.5 text-sm text-charcoal/70 transition-all duration-200 hover:bg-charcoal/5 hover:border-charcoal/40 hover:text-charcoal"
             >
               {languageToggleName}
+            </Link>
+            <Link
+              href={authButton.href}
+              className="ms-2 rounded-full bg-[var(--color-accent)] px-5 py-1.5 text-sm font-medium text-white transition-opacity duration-200 hover:opacity-90"
+            >
+              {authButton.label}
             </Link>
           </nav>
 
@@ -92,9 +102,9 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
             className="flex flex-col items-center justify-center gap-1.5 p-2 lg:hidden cursor-pointer"
             aria-label="Open menu"
           >
-            <span className="h-0.5 w-6 bg-white transition-transform" />
-            <span className="h-0.5 w-6 bg-white transition-opacity" />
-            <span className="h-0.5 w-6 bg-white transition-transform" />
+            <span className="h-0.5 w-6 bg-charcoal transition-transform" />
+            <span className="h-0.5 w-6 bg-charcoal transition-opacity" />
+            <span className="h-0.5 w-6 bg-charcoal transition-transform" />
           </button>
         </div>
       </header>
@@ -106,6 +116,7 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
         languageToggleName={languageToggleName}
         toggleHref={toggleHref}
         pathname={pathname}
+        authButton={authButton}
       />
 
       {/* Spacer for fixed header */}

@@ -1,34 +1,20 @@
 import { Container } from '@/components/ui/Container';
-import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import { StaggerChildren, StaggerItem } from '@/components/animation/StaggerChildren';
 
 interface InstructorPlatformProps {
-  title: string;
-  description: string;
   phases: { number: number; title: string; description: string }[];
 }
 
-export function InstructorPlatform({ title, description, phases }: InstructorPlatformProps) {
+export function InstructorPlatform({ phases }: InstructorPlatformProps) {
   return (
-    <section className="py-[var(--spacing-section)]">
+    <section className="bg-cream py-[var(--spacing-section)]">
       <Container>
-        <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="text-[var(--font-size-lg)] font-bold text-charcoal mb-4">
-              {title}
-            </h2>
-            <p className="text-base text-charcoal/70 max-w-2xl mx-auto leading-relaxed">
-              {description}
-            </p>
-          </div>
-        </ScrollReveal>
-
         <StaggerChildren className="grid gap-6 md:grid-cols-2">
           {phases.map((phase) => (
             <StaggerItem key={phase.number}>
-              <div className="flex gap-4 rounded-2xl bg-white p-6 shadow-[var(--shadow-natural)] transition-shadow duration-300 hover:shadow-[var(--shadow-deep)]">
+              <div className="flex h-full gap-4 rounded-2xl bg-white p-6 shadow-[var(--shadow-sm)] transition-shadow duration-300 hover:shadow-[var(--shadow-md)]">
                 {/* Phase number */}
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)] text-lg font-bold text-white">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent)]/80 text-lg font-bold text-white shadow-[var(--shadow-sm)]">
                   {phase.number}
                 </div>
                 <div>

@@ -7,16 +7,22 @@
   --color-accent-en: #0195ff;
   --color-charcoal: #2f353e;
   --color-gray: #abb8c3;
+  --color-warm-gray: #6b6560;
   --color-white: #ffffff;
+  --color-cream: #faf8f5;
+  --color-sand: #f0ebe4;
   --color-light-gray: #f5f5f5;
 
   /* ─── Typography ─── */
   --font-body: var(--font-cairo), Arial, system-ui, sans-serif;
 
+  --font-size-xs: 0.75rem;
   --font-size-sm: 0.8125rem;
+  --font-size-base: 1rem;
   --font-size-md: 1.25rem;
   --font-size-lg: 2.25rem;
   --font-size-xl: 2.625rem;
+  --font-size-2xl: 3rem;
 
   /* ─── Spacing ─── */
   --spacing-section: clamp(4rem, 8vw, 7rem);
@@ -26,10 +32,18 @@
   --container-max: 1200px;
   --container-narrow: 720px;
 
+  /* ─── Border Radius ─── */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-full: 9999px;
+
   /* ─── Shadows ─── */
+  --shadow-sm: 0 1px 3px rgba(47, 53, 62, 0.06), 0 1px 2px rgba(47, 53, 62, 0.04);
+  --shadow-md: 0 4px 16px rgba(47, 53, 62, 0.08), 0 2px 4px rgba(47, 53, 62, 0.04);
+  --shadow-lg: 0 12px 40px rgba(47, 53, 62, 0.12), 0 4px 8px rgba(47, 53, 62, 0.06);
   --shadow-natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
   --shadow-deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
-  --shadow-sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
 
   /* ─── Animation ─── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -94,5 +108,37 @@ h3 { font-size: var(--font-size-md); }
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Print Styles ─── */
+
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    background: white !important;
+  }
+
+  header, footer, nav {
+    display: none !important;
+  }
+
+  /* Avoid breaking inside cards */
+  [data-print-avoid] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Preserve color swatches */
+  [style*="background-color"] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1.5cm;
+    size: A4;
   }
 }

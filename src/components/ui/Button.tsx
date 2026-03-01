@@ -22,11 +22,11 @@ export function Button({
   disabled,
   onClick,
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/50 focus-visible:ring-offset-2';
 
   const variants = {
-    primary: 'bg-[var(--color-accent)] text-white hover:opacity-90 hover:shadow-lg',
-    outline: 'border-2 border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white',
+    primary: 'bg-[var(--color-accent)] text-white hover:opacity-90 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.97]',
+    outline: 'border-2 border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white active:scale-[0.97]',
     ghost: 'text-[var(--color-accent)] hover:underline',
   };
 

@@ -7,27 +7,24 @@ interface CTASectionProps {
   title: string;
   buttonText: string;
   locale: Locale;
-  variant?: 'dark' | 'light';
 }
 
-export function CTASection({ title, buttonText, locale, variant = 'dark' }: CTASectionProps) {
-  const isDark = variant === 'dark';
-
+export function CTASection({ title, buttonText, locale }: CTASectionProps) {
   return (
-    <section
-      className={isDark ? 'bg-charcoal py-[var(--spacing-section-sm)]' : 'bg-light-gray py-[var(--spacing-section-sm)]'}
-    >
+    <section className="bg-cream py-[var(--spacing-section)]">
       <Container>
         <ScrollReveal>
-          <div className="text-center">
-            <h2
-              className={`text-[var(--font-size-lg)] font-bold mb-8 ${isDark ? 'text-white' : 'text-charcoal'}`}
-            >
+          <div className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl bg-charcoal p-10 md:p-14 text-center shadow-[var(--shadow-lg)]">
+            {/* Decorative accent glow */}
+            <div className="absolute -top-20 start-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full bg-[var(--color-accent)]/10 blur-3xl" />
+            <h2 className="relative text-xl md:text-2xl font-bold text-white mb-8">
               {title}
             </h2>
-            <Button href={`/${locale}/contact`} variant="primary" size="large">
-              {buttonText}
-            </Button>
+            <div className="relative">
+              <Button href={`/${locale}/contact`} variant="primary" size="large">
+                {buttonText}
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
       </Container>
