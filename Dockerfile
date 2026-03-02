@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat python3 make g++
 FROM base AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --legacy-peer-deps
+RUN npm ci
 
 # --- Build stage ---
 FROM base AS builder
