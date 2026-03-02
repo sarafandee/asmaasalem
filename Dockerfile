@@ -1,7 +1,7 @@
 FROM node:22-alpine AS base
 
 # Install dependencies needed for native modules (better-sqlite3, etc.)
-RUN apk add --no-cache libc6-compat python3 make g++
+RUN apk add --no-cache libc6-compat python3 make g++ && npm install -g npm@11
 
 # --- Dependencies stage ---
 FROM base AS deps
