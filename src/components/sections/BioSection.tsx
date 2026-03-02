@@ -13,7 +13,7 @@ export function BioSection({ quote, paragraphs }: BioSectionProps) {
       <Container narrow>
         <ScrollReveal>
           {/* Profile image — centered with accent ring */}
-          <div className="relative mx-auto mb-8 w-48 h-48 md:w-56 md:h-56 overflow-hidden rounded-full ring-4 ring-[var(--color-accent)]/20 ring-offset-4 ring-offset-cream">
+          <div className="relative mx-auto mb-8 w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full ring-4 ring-[var(--color-accent)]/20 ring-offset-4 ring-offset-cream">
             <Image
               src="/images/about/profile.png"
               alt="Asmaa Salem"

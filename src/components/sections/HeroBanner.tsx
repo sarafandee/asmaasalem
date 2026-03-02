@@ -12,15 +12,25 @@ interface HeroBannerProps {
 
 export function HeroBanner({ title, subtitle, ctaText, locale }: HeroBannerProps) {
   return (
-    <section className="bg-cream">
-      <Container>
-        <div className="grid items-center gap-8 py-12 md:grid-cols-2 md:gap-12 md:py-16 lg:py-20">
+    <section className="relative overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/hero/hero-bg.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+
+      <Container className="relative z-10">
+        <div className="grid items-center gap-8 py-12 sm:py-16 md:grid-cols-2 md:gap-12 md:py-20 lg:py-28">
           {/* Text side */}
           <div>
-            <h1 className="text-2xl font-bold text-charcoal md:text-3xl lg:text-4xl leading-tight mb-4">
+            <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl leading-tight mb-4">
               {title}
             </h1>
-            <p className="text-base text-charcoal/70 md:text-lg mb-6 leading-relaxed">
+            <p className="text-base text-white/80 md:text-lg mb-6 leading-relaxed">
               {subtitle}
             </p>
             <Button href={`/${locale}/contact`} variant="primary" size="large">

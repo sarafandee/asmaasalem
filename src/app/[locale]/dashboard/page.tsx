@@ -158,13 +158,13 @@ export default async function DashboardPage({
 
       {/* Stats Row */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <StatsCard label={dict.dashboard.totalClients} value={clientCount.value} icon="&#9787;" />
-        <StatsCard label={dict.dashboard.totalTests} value={totalTests} icon="&#9733;" />
-        <StatsCard label={dict.dashboard.completedTests} value={completedTests} icon="&#10003;" />
+        <StatsCard label={dict.dashboard.totalClients} value={clientCount.value} icon={'\u263B'} />
+        <StatsCard label={dict.dashboard.totalTests} value={totalTests} icon={'\u2605'} />
+        <StatsCard label={dict.dashboard.completedTests} value={completedTests} icon={'\u2713'} />
         <StatsCard
           label={isAdmin ? dict.dashboard.activeInstructors : dict.dashboard.favorable}
           value={isAdmin ? instructorIds.size : favorable}
-          icon={isAdmin ? '&#9881;' : '&#10004;'}
+          icon={isAdmin ? '\u2699' : '\u2714'}
         />
       </div>
 

@@ -24,17 +24,18 @@ export default async function DashboardLayout({
   const dict = await getDictionary(typedLocale);
   const config = localeConfig[typedLocale];
 
-  const navItems = [
+  const allNavItems = [
     { label: dict.dashboard.overview, href: `/${locale}/dashboard`, icon: '\u2302' },
     { label: dict.dashboard.clients, href: `/${locale}/dashboard/clients`, icon: '\u2603' },
     { label: dict.dashboard.tests, href: `/${locale}/dashboard/tests`, icon: '\u2606' },
-    { label: dict.dashboard.users, href: `/${locale}/dashboard/users`, icon: '\u2699' },
+    { label: dict.dashboard.knowledge, href: `/${locale}/dashboard/knowledge`, icon: '\u{1F4DA}', adminOnly: true },
+    { label: dict.dashboard.users, href: `/${locale}/dashboard/users`, icon: '\u2699', adminOnly: true },
   ];
 
-  // Filter users nav item for non-admin
+  // Filter admin-only nav items for non-admin users
   const filteredNavItems = user.role === 'admin'
-    ? navItems
-    : navItems.filter((item) => !item.href.endsWith('/users'));
+    ? allNavItems
+    : allNavItems.filter((item) => !item.adminOnly);
 
   const toggleLocale = config.toggleLocale;
   const currentPath = `/${locale}/dashboard`;

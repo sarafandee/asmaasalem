@@ -38,7 +38,7 @@ export default async function ContactPage({
     <>
       <PageHero title={dict.contact.hero.title} subtitle={dict.contact.hero.description} />
 
-      <ContactForm form={dict.contact.form} />
+      <ContactForm />
     </>
   );
 }

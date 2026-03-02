@@ -56,6 +56,8 @@ export default async function HomePage({
       <ServiceCards heading={dict.home.services.title} services={dict.home.services.items} />
       <CTASection
         title={dict.home.cta.title}
+        description={dict.home.cta.description}
+        subtitle={dict.home.cta.joinTitle}
         buttonText={dict.home.cta.buttonText}
         locale={locale as Locale}
       />

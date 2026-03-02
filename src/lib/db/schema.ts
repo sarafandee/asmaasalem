@@ -46,3 +46,53 @@ export const testSessions = sqliteTable('test_sessions', {
     .notNull()
     .default(sql`(unixepoch())`),
 });
+
+// ---- RAG Knowledge Base ----
+
+export const documents = sqliteTable('documents', {
+  id: text('id').primaryKey(),
+  fileName: text('file_name').notNull(),
+  fileType: text('file_type', { enum: ['pdf', 'docx'] }).notNull(),
+  fileSize: integer('file_size').notNull(),
+  filePath: text('file_path').notNull(),
+  status: text('status', {
+    enum: ['pending', 'processing', 'completed', 'failed'],
+  }).notNull().default('pending'),
+  pageCount: integer('page_count'),
+  chunkCount: integer('chunk_count'),
+  error: text('error'),
+  uploadedBy: text('uploaded_by')
+    .notNull()
+    .references(() => users.id),
+  createdAt: integer('created_at', { mode: 'timestamp' })
+    .notNull()
+    .default(sql`(unixepoch())`),
+  processedAt: integer('processed_at', { mode: 'timestamp' }),
+});
+
+export const chatSessions = sqliteTable('chat_sessions', {
+  id: text('id').primaryKey(),
+  title: text('title').notNull(),
+  userId: text('user_id')
+    .notNull()
+    .references(() => users.id),
+  createdAt: integer('created_at', { mode: 'timestamp' })
+    .notNull()
+    .default(sql`(unixepoch())`),
+  updatedAt: integer('updated_at', { mode: 'timestamp' })
+    .notNull()
+    .default(sql`(unixepoch())`),
+});
+
+export const chatMessages = sqliteTable('chat_messages', {
+  id: text('id').primaryKey(),
+  sessionId: text('session_id')
+    .notNull()
+    .references(() => chatSessions.id, { onDelete: 'cascade' }),
+  role: text('role', { enum: ['user', 'assistant'] }).notNull(),
+  content: text('content').notNull(),
+  sourceChunkIds: text('source_chunk_ids'), // JSON array of chunk IDs
+  createdAt: integer('created_at', { mode: 'timestamp' })
+    .notNull()
+    .default(sql`(unixepoch())`),
+});

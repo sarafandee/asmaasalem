@@ -2,7 +2,6 @@ import type { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { getSessionUser } from '@/lib/auth';
 
 export default async function PublicLayout({
   children,
@@ -14,11 +13,6 @@ export default async function PublicLayout({
   const { locale } = await params;
   const typedLocale = locale as Locale;
   const dict = await getDictionary(typedLocale);
-  const user = await getSessionUser();
-
-  const authButton = user
-    ? { label: dict.auth.myDashboard, href: `/${locale}/dashboard` }
-    : { label: dict.auth.signIn, href: `/${locale}/login` };
 
   const navItems = [
     { label: dict.nav.home, href: `/${locale}` },
@@ -55,7 +49,6 @@ export default async function PublicLayout({
         locale={typedLocale}
         navItems={navItems}
         languageToggleName={dict.nav.languageToggle}
-        authButton={authButton}
       />
       <main className="flex-1">{children}</main>
       <Footer
@@ -64,7 +57,6 @@ export default async function PublicLayout({
         tagline={dict.footer.tagline}
         quickLinksLabel={dict.footer.quickLinks}
         contactLabel={dict.footer.contactInfo}
-        whatsappCta={dict.footer.whatsappCta}
         email={dict.footer.email}
         navItems={navItems}
       />

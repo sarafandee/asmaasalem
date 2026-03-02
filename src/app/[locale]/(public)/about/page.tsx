@@ -53,7 +53,7 @@ export default async function AboutPage({
       <section className="py-[var(--spacing-section)]">
         <Container narrow>
           <ScrollReveal>
-            <h2 className="text-[var(--font-size-lg)] font-bold text-charcoal mb-6 text-center">
+            <h2 className="text-2xl sm:text-[var(--font-size-lg)] font-bold text-charcoal mb-4 sm:mb-6 text-center">
               {dict.about.careerStory.title}
             </h2>
             <div className="space-y-4">
@@ -69,6 +69,7 @@ export default async function AboutPage({
 
       <CTASection
         title={dict.about.cta.title}
+        subtitle={dict.about.cta.subtitle}
         buttonText={dict.about.cta.buttonText}
         locale={locale as Locale}
       />

@@ -12,7 +12,6 @@ interface MobileMenuProps {
   languageToggleName: string;
   toggleHref: string;
   pathname: string;
-  authButton: { label: string; href: string };
 }
 
 export function MobileMenu({
@@ -22,7 +21,6 @@ export function MobileMenu({
   languageToggleName,
   toggleHref,
   pathname,
-  authButton,
 }: MobileMenuProps) {
   useEffect(() => {
     if (isOpen) {
@@ -47,7 +45,7 @@ export function MobileMenu({
           <div className="flex justify-end p-6">
             <button
               onClick={onClose}
-              className="text-white/80 hover:text-white text-3xl leading-none cursor-pointer"
+              className="text-white/80 hover:text-white text-2xl sm:text-3xl leading-none cursor-pointer"
               aria-label="Close menu"
             >
               &times;
@@ -69,7 +67,7 @@ export function MobileMenu({
                     href={item.href}
                     onClick={onClose}
                     className={clsx(
-                      'text-2xl font-medium transition-colors duration-200',
+                      'text-xl sm:text-2xl font-medium transition-colors duration-200',
                       isActive
                         ? 'text-[var(--color-accent)]'
                         : 'text-white/80 hover:text-white'
@@ -91,19 +89,6 @@ export function MobileMenu({
                 className="mt-4 rounded-full border border-white/30 px-6 py-2 text-lg text-white/80 transition-colors duration-200 hover:border-white hover:text-white"
               >
                 {languageToggleName}
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (navItems.length + 1) * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Link
-                href={authButton.href}
-                onClick={onClose}
-                className="mt-2 rounded-full bg-[var(--color-accent)] px-6 py-2 text-lg font-medium text-white transition-opacity duration-200 hover:opacity-90"
-              >
-                {authButton.label}
               </Link>
             </motion.div>
           </nav>

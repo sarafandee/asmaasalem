@@ -39,7 +39,7 @@ export default async function InstructorsPage({
     <>
       <PageHero title={dict.instructors.hero.title} subtitle={dict.instructors.hero.description} />
 
-      <InstructorPlatform phases={dict.instructors.phases} />
+      <InstructorPlatform intro={dict.instructors.intro} phases={dict.instructors.phases} />
 
       <CTASection
         title={dict.instructors.cta.title}

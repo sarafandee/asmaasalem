@@ -18,13 +18,9 @@ interface HeaderProps {
   locale: Locale;
   navItems: NavItem[];
   languageToggleName: string;
-  authButton: {
-    label: string;
-    href: string;
-  };
 }
 
-export function Header({ locale, navItems, languageToggleName, authButton }: HeaderProps) {
+export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -50,7 +46,7 @@ export function Header({ locale, navItems, languageToggleName, authButton }: Hea
             : 'bg-white'
         )}
       >
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-3 md:px-8">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-3 sm:px-6 md:px-8">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex-shrink-0">
             <Image
@@ -88,12 +84,6 @@ export function Header({ locale, navItems, languageToggleName, authButton }: Hea
             >
               {languageToggleName}
             </Link>
-            <Link
-              href={authButton.href}
-              className="ms-2 rounded-full bg-[var(--color-accent)] px-5 py-1.5 text-sm font-medium text-white transition-opacity duration-200 hover:opacity-90"
-            >
-              {authButton.label}
-            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -116,7 +106,6 @@ export function Header({ locale, navItems, languageToggleName, authButton }: Hea
         languageToggleName={languageToggleName}
         toggleHref={toggleHref}
         pathname={pathname}
-        authButton={authButton}
       />
 
       {/* Spacer for fixed header */}

@@ -51,7 +51,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onPrev, onNext
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 end-4 z-10 text-white/80 hover:text-white text-4xl leading-none cursor-pointer"
+            className="absolute top-4 end-4 z-10 text-white/80 hover:text-white text-3xl sm:text-4xl leading-none cursor-pointer"
             aria-label="Close"
           >
             &times;
@@ -61,7 +61,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onPrev, onNext
           {images.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); onPrev(); }}
-              className="absolute start-4 top-1/2 -translate-y-1/2 z-10 text-white/80 hover:text-white text-5xl cursor-pointer"
+              className="absolute start-2 sm:start-4 top-1/2 -translate-y-1/2 z-10 text-white/80 hover:text-white text-3xl sm:text-5xl cursor-pointer"
               aria-label="Previous"
             >
               &#8249;
@@ -92,7 +92,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onPrev, onNext
           {images.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); onNext(); }}
-              className="absolute end-4 top-1/2 -translate-y-1/2 z-10 text-white/80 hover:text-white text-5xl cursor-pointer"
+              className="absolute end-2 sm:end-4 top-1/2 -translate-y-1/2 z-10 text-white/80 hover:text-white text-3xl sm:text-5xl cursor-pointer"
               aria-label="Next"
             >
               &#8250;

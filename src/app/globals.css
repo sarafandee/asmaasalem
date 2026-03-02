@@ -20,9 +20,9 @@
   --font-size-sm: 0.8125rem;
   --font-size-base: 1rem;
   --font-size-md: 1.25rem;
-  --font-size-lg: 2.25rem;
-  --font-size-xl: 2.625rem;
-  --font-size-2xl: 3rem;
+  --font-size-lg: clamp(1.5rem, 4vw + 0.5rem, 2.25rem);
+  --font-size-xl: clamp(1.75rem, 5vw + 0.5rem, 2.625rem);
+  --font-size-2xl: clamp(2rem, 5vw + 0.75rem, 3rem);
 
   /* ─── Spacing ─── */
   --spacing-section: clamp(4rem, 8vw, 7rem);
@@ -60,7 +60,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--font-size-md);
+  font-size: clamp(1rem, 0.5vw + 0.875rem, 1.25rem);
   line-height: 1.7;
   color: var(--color-charcoal);
   background-color: var(--color-white);

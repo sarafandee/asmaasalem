@@ -21,14 +21,14 @@ export function ServiceCards({ heading, services }: ServiceCardsProps) {
     <section className="py-[var(--spacing-section)]">
       <Container>
         <ScrollReveal>
-          <h2 className="text-[var(--font-size-lg)] font-bold text-charcoal mb-10 text-center">
+          <h2 className="text-2xl sm:text-[var(--font-size-lg)] font-bold text-charcoal mb-8 sm:mb-10 text-center">
             {heading}
           </h2>
         </ScrollReveal>
-        <StaggerChildren className="grid gap-8 md:grid-cols-3">
+        <StaggerChildren className="grid gap-6 sm:gap-8 md:grid-cols-3">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <div className="group rounded-2xl border-t-2 border-[var(--color-accent)] bg-cream p-8 shadow-[var(--shadow-sm)] transition-all duration-300 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 hover:bg-white">
+              <div className="group rounded-2xl border-t-2 border-[var(--color-accent)] bg-cream p-6 sm:p-8 shadow-[var(--shadow-sm)] transition-all duration-300 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 hover:bg-white">
                 {/* Icon */}
                 <div className="mb-5 text-[var(--color-accent)]">
                   {serviceIcons[i] || serviceIcons[0]}
