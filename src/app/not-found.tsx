@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { headers } from 'next/headers';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found | أسماء سالم',
+  robots: { index: false, follow: true },
+};
 
 export default async function NotFound() {
   const headersList = await headers();

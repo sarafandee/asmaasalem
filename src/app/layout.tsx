@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'أسماء سالم | لايف كوتش',
-  description: 'Life coaching through Luscher Color Test and MetaHealth',
+  title: 'Asmaa Salem | أسماء سالم',
+  description: 'Specialized life coaching through Luscher Color Test and MetaHealth | لايف كوتش متخصصة في اختبار لوشر والميتاهيلث',
 };
 
 export default function RootLayout({

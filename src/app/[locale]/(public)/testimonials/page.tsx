@@ -17,12 +17,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
+  const title = `${dict.nav.testimonials} | ${dict.meta.siteTitle}`;
   return {
-    title: `${dict.nav.testimonials} | ${dict.meta.siteTitle}`,
+    title,
     description: dict.meta.testimonialsDescription,
     alternates: {
       canonical: `https://asmaasalem.com/${locale}/testimonials`,
-      languages: { ar: '/ar/testimonials', en: '/en/testimonials' },
+      languages: {
+        ar: 'https://asmaasalem.com/ar/testimonials',
+        en: 'https://asmaasalem.com/en/testimonials',
+      },
+    },
+    openGraph: {
+      title,
+      description: dict.meta.testimonialsDescription,
+      url: `https://asmaasalem.com/${locale}/testimonials`,
+      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      title,
+      description: dict.meta.testimonialsDescription,
     },
   };
 }

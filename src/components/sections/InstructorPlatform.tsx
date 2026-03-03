@@ -61,7 +61,7 @@ export function InstructorPlatform({ intro, phases }: InstructorPlatformProps) {
                         {phase.number}
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-charcoal">{phase.title}</h3>
+                        <h2 className="text-lg font-bold text-charcoal">{phase.title}</h2>
                         {phase.subtitle && (
                           <p className="text-sm font-medium text-[var(--color-accent)]">{phase.subtitle}</p>
                         )}
@@ -76,7 +76,7 @@ export function InstructorPlatform({ intro, phases }: InstructorPlatformProps) {
                       <div className="space-y-3 border-s-2 border-[var(--color-accent)]/20 ps-4">
                         {phase.subItems.map((item, i) => (
                           <div key={i}>
-                            <h4 className="text-sm font-bold text-charcoal">{item.title}</h4>
+                            <h3 className="text-sm font-bold text-charcoal">{item.title}</h3>
                             <p className="mt-0.5 text-xs sm:text-sm leading-relaxed text-charcoal/60">{item.description}</p>
                           </div>
                         ))}

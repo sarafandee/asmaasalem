@@ -32,16 +32,25 @@ export default async function PublicLayout({
             '@type': 'ProfessionalService',
             name: 'Asmaa Salem - Life Coach',
             description: dict.meta.siteDescription,
-            url: 'https://asmaasalem.com',
+            url: `https://asmaasalem.com/${typedLocale}`,
             image: 'https://asmaasalem.com/images/about/profile.png',
+            serviceType: 'Life Coaching',
             provider: {
               '@type': 'Person',
               name: 'Asmaa Salem',
+              url: 'https://asmaasalem.com',
               jobTitle: typedLocale === 'ar' ? 'لايف كوتش متخصصة' : 'Specialized Life Coach',
               knowsAbout: ['Luscher Color Test', 'Meta-Health', 'Life Coaching', 'Emotional Analysis'],
+              knowsLanguage: ['ar', 'en'],
             },
             areaServed: { '@type': 'GeoShape', name: 'Worldwide' },
             inLanguage: [typedLocale],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Customer Service',
+              email: dict.footer.email,
+              availableLanguage: ['Arabic', 'English'],
+            },
           }),
         }}
       />

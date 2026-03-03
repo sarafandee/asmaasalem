@@ -24,7 +24,21 @@ export async function generateMetadata({
     description: dict.meta.homeDescription,
     alternates: {
       canonical: `https://asmaasalem.com/${locale}`,
-      languages: { ar: '/ar', en: '/en' },
+      languages: {
+        ar: 'https://asmaasalem.com/ar',
+        en: 'https://asmaasalem.com/en',
+      },
+    },
+    openGraph: {
+      title: dict.meta.siteTitle,
+      description: dict.meta.homeDescription,
+      url: `https://asmaasalem.com/${locale}`,
+      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      title: dict.meta.siteTitle,
+      description: dict.meta.homeDescription,
     },
   };
 }

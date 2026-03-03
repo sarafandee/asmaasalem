@@ -20,12 +20,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
+  const title = `${dict.nav.about} | ${dict.meta.siteTitle}`;
   return {
-    title: `${dict.nav.about} | ${dict.meta.siteTitle}`,
+    title,
     description: dict.meta.aboutDescription,
     alternates: {
       canonical: `https://asmaasalem.com/${locale}/about`,
-      languages: { ar: '/ar/about', en: '/en/about' },
+      languages: {
+        ar: 'https://asmaasalem.com/ar/about',
+        en: 'https://asmaasalem.com/en/about',
+      },
+    },
+    openGraph: {
+      title,
+      description: dict.meta.aboutDescription,
+      url: `https://asmaasalem.com/${locale}/about`,
+      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      title,
+      description: dict.meta.aboutDescription,
     },
   };
 }

@@ -16,7 +16,7 @@ export function HeroBanner({ title, subtitle, ctaText, locale }: HeroBannerProps
       {/* Background image */}
       <Image
         src="/images/hero/hero-bg.jpg"
-        alt=""
+        alt="Asmaa Salem life coaching session background"
         fill
         className="object-cover"
         priority

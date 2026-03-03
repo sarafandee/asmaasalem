@@ -12,6 +12,10 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://asmaasalem.com'),
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     type: 'website',
     siteName: 'Asmaa Salem | Life Coach',
@@ -19,6 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/images/og-image.png'],
   },
 };
 
