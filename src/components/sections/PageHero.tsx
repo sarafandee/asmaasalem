@@ -1,5 +1,5 @@
-import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
+import { ColorFlower } from './ColorFlower';
 
 interface PageHeroProps {
   title: string;
@@ -8,21 +8,26 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative bg-gradient-to-br from-charcoal via-charcoal to-charcoal/90 py-12 sm:py-16 md:py-20 overflow-hidden">
-      {/* Decorative accent glow */}
-      <div className="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[var(--color-accent)]/5 blur-3xl" />
-      <Container>
+    <section className="relative overflow-hidden bg-ink text-paper">
+      <div className="pointer-events-none absolute -end-28 top-1/2 hidden -translate-y-1/2 opacity-90 md:block">
+        <div className="anim-spin">
+          <ColorFlower petal={150} />
+        </div>
+      </div>
+      <div className="relative mx-auto max-w-[1240px] px-5 pb-20 pt-12 sm:px-8 md:pb-28 md:pt-16">
         <ScrollReveal>
-          <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl text-center mb-3 relative">
-            {title}
-          </h1>
-          {subtitle && (
-            <p className="text-base text-white/70 text-center max-w-xl mx-auto relative">
-              {subtitle}
-            </p>
-          )}
+          <div className="flex max-w-[44rem] flex-col gap-5 md:max-w-[calc(100%-22rem)]">
+            <span aria-hidden="true" className="flex gap-1.5">
+              <span className="leaf h-3 w-3 bg-lu-red" />
+              <span className="leaf h-3 w-3 bg-lu-green" />
+              <span className="leaf h-3 w-3 bg-lu-yellow" />
+              <span className="leaf h-3 w-3 bg-lu-blue" />
+            </span>
+            <h1 className="text-[clamp(2.2rem,4.6vw,4rem)]">{title}</h1>
+            {subtitle && <p className="text-lg text-paper/80 md:text-xl">{subtitle}</p>}
+          </div>
         </ScrollReveal>
-      </Container>
+      </div>
     </section>
   );
 }

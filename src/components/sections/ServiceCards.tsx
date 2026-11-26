@@ -1,49 +1,60 @@
-import { Container } from '@/components/ui/Container';
+import Link from 'next/link';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import { StaggerChildren, StaggerItem } from '@/components/animation/StaggerChildren';
+import type { Locale } from '@/lib/i18n/config';
+import { LUSCHER_COLORS } from '@/lib/palette';
 
 interface ServiceCardsProps {
+  locale: Locale;
+  tag: string;
   heading: string;
   services: { title: string; description: string }[];
+  bookLabel: string;
+  platformLabel: string;
 }
 
-const serviceIcons = [
-  // Brain icon — MetaHealth / emotional analysis
-  <svg key="brain" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 1.5-.5 2.5-1.5 3.5S14 12 14 14h-4c0-2-.5-2.5-1.5-3.5S7 8.5 7 7a5 5 0 0 1 5-5z"/><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2v-0"/><path d="M4.93 4.93l-.01-.01"/><path d="M19.07 4.93l.01-.01"/><path d="M2 12h.01"/><path d="M22 12h-.01"/></svg>,
-  // Palette icon — Luscher Color Test
-  <svg key="palette" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7" r="1.5" fill="currentColor"/><circle cx="8" cy="11" r="1.5" fill="currentColor"/><circle cx="16" cy="11" r="1.5" fill="currentColor"/><circle cx="10" cy="16" r="1.5" fill="currentColor"/></svg>,
-  // Platform/chart icon — Support Platform
-  <svg key="platform" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/><path d="M13 15h4"/><path d="M13 12h4"/><path d="M13 18h2"/></svg>,
-];
+const FILLS = [LUSCHER_COLORS.blue.fill, LUSCHER_COLORS.red.fill, LUSCHER_COLORS.green.fill];
 
-export function ServiceCards({ heading, services }: ServiceCardsProps) {
+export function ServiceCards({ locale, tag, heading, services, bookLabel, platformLabel }: ServiceCardsProps) {
   return (
-    <section className="py-[var(--spacing-section)]">
-      <Container>
-        <ScrollReveal>
-          <h2 className="text-2xl sm:text-[var(--font-size-lg)] font-bold text-charcoal mb-8 sm:mb-10 text-center">
-            {heading}
-          </h2>
-        </ScrollReveal>
-        <StaggerChildren className="grid gap-6 sm:gap-8 md:grid-cols-3">
-          {services.map((service, i) => (
-            <StaggerItem key={i}>
-              <div className="group rounded-2xl border-t-2 border-[var(--color-accent)] bg-cream p-6 sm:p-8 shadow-[var(--shadow-sm)] transition-all duration-300 hover:shadow-[var(--shadow-md)] hover:-translate-y-1 hover:bg-white">
-                {/* Icon */}
-                <div className="mb-5 text-[var(--color-accent)]">
-                  {serviceIcons[i] || serviceIcons[0]}
+    <section className="mx-auto flex max-w-[1240px] flex-col gap-14 px-5 py-[var(--spacing-section)] sm:px-8">
+      <ScrollReveal>
+        <div className="flex max-w-[760px] flex-col gap-5">
+          <span className="eyebrow text-[var(--color-accent-text)]">03 — {tag}</span>
+          <h2 className="text-[clamp(1.9rem,3.4vw,2.9rem)] leading-tight">{heading}</h2>
+        </div>
+      </ScrollReveal>
+      <StaggerChildren className="grid gap-6 md:grid-cols-3">
+        {services.map((service, i) => {
+          // The third service is the practitioners' platform; the others are bookable sessions.
+          const isPlatform = i === 2;
+          return (
+            <StaggerItem key={i} className="h-full">
+              <article className="lift flex h-full flex-col gap-5 rounded-[32px] border border-line bg-card p-8 sm:p-9">
+                <div className="flex items-center justify-between">
+                  <span
+                    aria-hidden="true"
+                    className="leaf leaf-turn block h-[60px] w-[60px]"
+                    style={{ backgroundColor: FILLS[i % FILLS.length] }}
+                  />
+                  <span className="font-display text-[2.5rem] font-extrabold text-[#6b6560]">
+                    0{i + 1}
+                  </span>
                 </div>
-                <h3 className="mb-3 text-xl font-bold text-charcoal">
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-charcoal/70">
-                  {service.description}
-                </p>
-              </div>
+                <h3 className="text-[1.35rem]">{service.title}</h3>
+                <p className="flex-1 text-base text-muted">{service.description}</p>
+                <Link
+                  href={`/${locale}/${isPlatform ? 'instructors' : 'contact'}`}
+                  className="inline-flex min-h-11 items-center gap-2 font-semibold text-ink underline decoration-[var(--color-accent)] decoration-2 underline-offset-[6px] hover:decoration-[3px]"
+                >
+                  {isPlatform ? platformLabel : bookLabel}
+                  <span aria-hidden="true" className="flip-rtl">→</span>
+                </Link>
+              </article>
             </StaggerItem>
-          ))}
-        </StaggerChildren>
-      </Container>
+          );
+        })}
+      </StaggerChildren>
     </section>
   );
 }

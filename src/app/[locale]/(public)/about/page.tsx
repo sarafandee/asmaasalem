@@ -65,18 +65,16 @@ export default async function AboutPage({
       <CertificateGallery credentials={dict.about.credentials} />
 
       {/* Career story */}
-      <section className="py-[var(--spacing-section)]">
-        <Container narrow>
+      <section className="bg-navy text-paper">
+        <Container className="max-w-[1240px] py-[var(--spacing-section)]">
           <ScrollReveal>
-            <h2 className="text-2xl sm:text-[var(--font-size-lg)] font-bold text-charcoal mb-4 sm:mb-6 text-center">
-              {dict.about.careerStory.title}
-            </h2>
-            <div className="space-y-4">
-              {dict.about.careerStory.paragraphs.map((p: string, i: number) => (
-                <p key={i} className="text-base leading-relaxed text-charcoal/80">
-                  {p}
-                </p>
-              ))}
+            <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+              <h2 className="text-[clamp(1.8rem,3.2vw,2.75rem)]">{dict.about.careerStory.title}</h2>
+              <div className="flex flex-col gap-5 text-paper/85">
+                {dict.about.careerStory.paragraphs.map((p: string, i: number) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
         </Container>

@@ -12,6 +12,9 @@ interface MobileMenuProps {
   languageToggleName: string;
   toggleHref: string;
   pathname: string;
+  ctaText: string;
+  ctaHref: string;
+  closeLabel: string;
 }
 
 export function MobileMenu({
@@ -21,6 +24,9 @@ export function MobileMenu({
   languageToggleName,
   toggleHref,
   pathname,
+  ctaText,
+  ctaHref,
+  closeLabel,
 }: MobileMenuProps) {
   useEffect(() => {
     if (isOpen) {
@@ -39,14 +45,14 @@ export function MobileMenu({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 bg-charcoal flex flex-col"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-ink text-paper"
         >
           {/* Close button */}
           <div className="flex justify-end p-6">
             <button
               onClick={onClose}
-              className="text-white/80 hover:text-white text-2xl sm:text-3xl leading-none cursor-pointer"
-              aria-label="Close menu"
+              className="grid h-11 w-11 cursor-pointer place-items-center text-3xl leading-none text-paper/80 hover:text-paper"
+              aria-label={closeLabel}
             >
               &times;
             </button>
@@ -67,10 +73,10 @@ export function MobileMenu({
                     href={item.href}
                     onClick={onClose}
                     className={clsx(
-                      'text-xl sm:text-2xl font-medium transition-colors duration-200',
+                      'font-display text-2xl font-semibold transition-colors duration-200 sm:text-3xl',
                       isActive
-                        ? 'text-[var(--color-accent)]'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-[var(--color-accent-on-dark)]'
+                        : 'text-paper/80 hover:text-paper'
                     )}
                   >
                     {item.label}
@@ -83,13 +89,22 @@ export function MobileMenu({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navItems.length * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Link
-                href={toggleHref}
-                onClick={onClose}
-                className="mt-4 rounded-full border border-white/30 px-6 py-2 text-lg text-white/80 transition-colors duration-200 hover:border-white hover:text-white"
-              >
-                {languageToggleName}
-              </Link>
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href={toggleHref}
+                  onClick={onClose}
+                  className="inline-flex h-12 items-center rounded-full border border-paper/35 px-6 text-lg text-paper/85 transition-colors duration-200 hover:border-paper hover:text-paper"
+                >
+                  {languageToggleName}
+                </Link>
+                <Link
+                  href={ctaHref}
+                  onClick={onClose}
+                  className="pill h-12 bg-[var(--color-accent)] px-6 text-lg text-ink"
+                >
+                  {ctaText}
+                </Link>
+              </div>
             </motion.div>
           </nav>
         </motion.div>

@@ -18,9 +18,11 @@ interface HeaderProps {
   locale: Locale;
   navItems: NavItem[];
   languageToggleName: string;
+  ctaText: string;
+  brandName: string;
 }
 
-export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
+export function Header({ locale, navItems, languageToggleName, ctaText, brandName }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -29,6 +31,7 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -40,61 +43,78 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
     <>
       <header
         className={clsx(
-          'fixed top-0 start-0 end-0 z-40 transition-all duration-500',
-          scrolled
-            ? 'bg-white/95 backdrop-blur-sm shadow-[var(--shadow-md)] border-b border-charcoal/5'
-            : 'bg-white'
+          'fixed top-0 start-0 end-0 z-40 text-paper transition-all duration-500',
+          scrolled ? 'bg-ink/90 shadow-[0_10px_30px_rgba(0,0,0,0.25)] backdrop-blur-md' : 'bg-ink'
         )}
       >
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-3 sm:px-6 md:px-8">
+        <div
+          className={clsx(
+            'mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-5 transition-all duration-500 sm:px-8',
+            scrolled ? 'py-2.5' : 'py-4'
+          )}
+        >
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex-shrink-0">
-            <Image
-              src="/images/logo/asmaa_logo_moderate_boost.png"
-              alt={locale === 'ar' ? 'أسماء سالم - لايف كوتش' : 'Asmaa Salem - Life Coach'}
-              width={200}
-              height={80}
-              className="h-14 w-auto md:h-16"
-              priority
-            />
+          <Link href={`/${locale}`} className="flex flex-shrink-0 items-center gap-3">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-paper">
+              <Image
+                src="/images/logo/asmaa_logo_moderate_boost.png"
+                alt=""
+                width={32}
+                height={37}
+                className="h-[37px] w-8 object-contain"
+                priority
+              />
+            </span>
+            <span className="whitespace-nowrap font-display text-lg font-semibold">{brandName}</span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-0.5 min-[1360px]:flex">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
                   className={clsx(
-                    'rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200',
-                    isActive
-                      ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/5'
-                      : 'text-charcoal/70 hover:text-charcoal hover:bg-charcoal/5'
+                    'relative whitespace-nowrap rounded-full px-3 py-2 text-[0.95rem] transition-colors duration-200',
+                    isActive ? 'text-paper' : 'text-paper/75 hover:text-paper'
                   )}
                 >
                   {item.label}
+                  {isActive && (
+                    <span className="leaf absolute -bottom-0.5 left-1/2 h-1.5 w-1.5 -translate-x-1/2 bg-[var(--color-accent)]" />
+                  )}
                 </Link>
               );
             })}
+          </nav>
+
+          <div className="hidden items-center gap-3 min-[1360px]:flex">
             <Link
               href={toggleHref}
-              className="ms-2 rounded-full border border-charcoal/20 px-4 py-1.5 text-sm text-charcoal/70 transition-all duration-200 hover:bg-charcoal/5 hover:border-charcoal/40 hover:text-charcoal"
+              className="inline-flex h-11 items-center whitespace-nowrap rounded-full border border-paper/35 px-4 text-[0.95rem] transition-colors duration-200 hover:border-paper"
             >
               {languageToggleName}
             </Link>
-          </nav>
+            <Link
+              href={`/${locale}/contact`}
+              className="pill h-11 whitespace-nowrap bg-[var(--color-accent)] px-5 text-[0.95rem] text-ink"
+            >
+              {ctaText}
+            </Link>
+          </div>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="flex flex-col items-center justify-center gap-1.5 p-2 lg:hidden cursor-pointer"
-            aria-label="Open menu"
+            className="flex h-11 w-11 cursor-pointer flex-col items-center justify-center gap-1.5 min-[1360px]:hidden"
+            aria-label={locale === 'ar' ? 'فتح القائمة' : 'Open menu'}
           >
-            <span className="h-0.5 w-6 bg-charcoal transition-transform" />
-            <span className="h-0.5 w-6 bg-charcoal transition-opacity" />
-            <span className="h-0.5 w-6 bg-charcoal transition-transform" />
+            <span className="h-0.5 w-6 bg-paper" />
+            <span className="h-0.5 w-6 bg-paper" />
+            <span className="h-0.5 w-4 self-end bg-paper me-2.5" />
           </button>
         </div>
       </header>
@@ -106,10 +126,13 @@ export function Header({ locale, navItems, languageToggleName }: HeaderProps) {
         languageToggleName={languageToggleName}
         toggleHref={toggleHref}
         pathname={pathname}
+        ctaText={ctaText}
+        ctaHref={`/${locale}/contact`}
+        closeLabel={locale === 'ar' ? 'إغلاق القائمة' : 'Close menu'}
       />
 
       {/* Spacer for fixed header */}
-      <div className="h-[72px] md:h-[80px]" />
+      <div className="h-[80px] bg-ink" />
     </>
   );
 }

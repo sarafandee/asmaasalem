@@ -3,9 +3,11 @@
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { Lightbox } from '@/components/ui/Lightbox';
-import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import { StaggerChildren, StaggerItem } from '@/components/animation/StaggerChildren';
+import { LUSCHER_COLORS } from '@/lib/palette';
+
+const LEAF_FILLS = Object.values(LUSCHER_COLORS).map((c) => c.fill);
 
 interface CertificateGalleryProps {
   credentials: { title: string; institution: string; description: string }[];
@@ -37,21 +39,25 @@ export function CertificateGallery({ credentials }: CertificateGalleryProps) {
   }, []);
 
   return (
-    <section className="py-[var(--spacing-section)]">
-      <Container narrow>
+    <section>
+      <div className="mx-auto max-w-[1240px] px-5 py-[var(--spacing-section)] sm:px-8">
         {/* Credentials list with accent dots */}
         <ScrollReveal>
-          <div className="mb-12 space-y-6">
+          <div className="mb-16 grid gap-5 md:grid-cols-2">
             {credentials.map((cred, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[var(--color-accent)]" />
+              <div key={i} className="lift flex gap-5 rounded-[28px] border border-line bg-card p-7">
+                <span
+                  aria-hidden="true"
+                  className="leaf leaf-turn mt-1 h-7 w-7 flex-shrink-0"
+                  style={{ backgroundColor: LEAF_FILLS[i % LEAF_FILLS.length] }}
+                />
                 <div>
-                  <h3 className="text-lg font-bold text-charcoal">{cred.title}</h3>
+                  <h3 className="text-lg">{cred.title}</h3>
                   {cred.institution && (
-                    <p className="text-sm font-medium text-[var(--color-accent)] mt-1">{cred.institution}</p>
+                    <p className="mt-1 text-[0.95rem] font-medium text-[var(--color-accent-text)]">{cred.institution}</p>
                   )}
                   {cred.description && (
-                    <p className="text-sm text-charcoal/70 leading-relaxed mt-2">{cred.description}</p>
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{cred.description}</p>
                   )}
                 </div>
               </div>
@@ -65,7 +71,7 @@ export function CertificateGallery({ credentials }: CertificateGalleryProps) {
             <StaggerItem key={i}>
               <button
                 onClick={() => openLightbox(i)}
-                className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl cursor-zoom-in"
+                className="group relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-[20px] border border-line bg-card transition-transform duration-500 hover:-translate-y-2"
               >
                 <Image
                   src={img.src}
@@ -81,7 +87,7 @@ export function CertificateGallery({ credentials }: CertificateGalleryProps) {
             </StaggerItem>
           ))}
         </StaggerChildren>
-      </Container>
+      </div>
 
       <Lightbox
         images={certificateImages}
