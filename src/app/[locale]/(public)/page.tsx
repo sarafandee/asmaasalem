@@ -94,9 +94,10 @@ export default async function HomePage({
       <AboutTeaser
         locale={typedLocale}
         tag={home.aboutTeaser.tag}
-        quote={dict.about.hero.quote}
+        heading={home.aboutTeaser.heading}
+        paragraphs={home.aboutTeaser.paragraphs}
         name={dict.about.hero.title}
-        subtitle={dict.about.hero.subtitle}
+        role={home.aboutTeaser.role}
         linkLabel={home.aboutTeaser.link}
         imageAlt={home.aboutTeaser.imageAlt}
       />

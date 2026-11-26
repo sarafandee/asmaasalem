@@ -6,14 +6,15 @@ import type { Locale } from '@/lib/i18n/config';
 interface AboutTeaserProps {
   locale: Locale;
   tag: string;
-  quote: string;
+  heading: string;
+  paragraphs: string[];
   name: string;
-  subtitle: string;
+  role: string;
   linkLabel: string;
   imageAlt: string;
 }
 
-export function AboutTeaser({ locale, tag, quote, name, subtitle, linkLabel, imageAlt }: AboutTeaserProps) {
+export function AboutTeaser({ locale, tag, heading, paragraphs, name, role, linkLabel, imageAlt }: AboutTeaserProps) {
   return (
     <section className="bg-paper-deep">
       <div className="mx-auto grid max-w-[1240px] items-center gap-14 px-5 py-[var(--spacing-section)] sm:px-8 md:grid-cols-[1fr_1.2fr] md:gap-20">
@@ -34,13 +35,16 @@ export function AboutTeaser({ locale, tag, quote, name, subtitle, linkLabel, ima
         <ScrollReveal delay={0.15}>
           <div className="flex flex-col gap-5">
             <span className="eyebrow text-navy">{tag}</span>
-            <blockquote className="font-display text-[clamp(1.75rem,3.2vw,2.6rem)] font-semibold leading-snug">
-              “{quote}”
-            </blockquote>
-            <div className="flex flex-col gap-1">
-              <strong className="text-xl">{name}</strong>
-              <span className="text-base text-muted">{subtitle}</span>
-            </div>
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.6rem)] leading-snug">{heading}</h2>
+            {paragraphs.map((p, i) => (
+              <p key={i} className={i === 0 ? 'text-lg text-ink/90' : 'text-base text-muted'}>
+                {p}
+              </p>
+            ))}
+            <p className="text-base">
+              <strong className="font-semibold">{name}</strong>
+              <span className="text-muted"> — {role}</span>
+            </p>
             <Link
               href={`/${locale}/about`}
               className="inline-flex min-h-11 w-fit items-center gap-2 font-semibold underline decoration-[var(--color-accent)] decoration-2 underline-offset-[6px] hover:decoration-[3px]"
