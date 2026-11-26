@@ -7,7 +7,6 @@ import { MetaHealthExplainer } from '@/components/sections/MetaHealthExplainer';
 import { LuscherInfo } from '@/components/sections/LuscherInfo';
 import { ServiceCards } from '@/components/sections/ServiceCards';
 import { CTASection } from '@/components/sections/CTASection';
-import { WordRibbon } from '@/components/sections/WordRibbon';
 import { AboutTeaser } from '@/components/sections/AboutTeaser';
 import { TestimonialMarquee } from '@/components/sections/TestimonialMarquee';
 
@@ -69,7 +68,6 @@ export default async function HomePage({
         ctaText={home.hero.ctaText}
         secondaryCta={home.hero.secondaryCta}
       />
-      <WordRibbon words={home.ribbon} />
       <MetaHealthExplainer
         tag={home.metahealth.tag}
         title={home.metahealth.title}
