@@ -8,7 +8,7 @@ Bilingual (Arabic RTL + English LTR) life coaching website for Asmaa Salem, spec
 - **Language**: TypeScript (strict)
 - **Styling**: Tailwind CSS v4 (`@theme` tokens in `globals.css`, no config file)
 - **Animations**: Framer Motion 12 (`ScrollReveal`, `StaggerChildren`)
-- **Email**: Resend (contact form)
+- **Contact**: embedded Google Form (no backend; the site is fully static content)
 - **Font**: Cairo (Arabic) via `next/font/google`
 - **Deployment**: Dokploy + Nixpacks
 
@@ -46,8 +46,7 @@ npm run lint    # Run ESLint
 - `src/components/ui/` — Reusable UI primitives (Button, Container, Input, etc.)
 - `src/components/layout/` — Header, Footer, MobileMenu
 - `src/components/animation/` — ScrollReveal, StaggerChildren
-- `src/lib/` — i18n config, constants, types, rate-limit
-- `src/app/api/contact/` — Contact form POST handler
+- `src/lib/` — i18n config, palette
 
 ## Conventions
 - Use CSS logical properties for RTL support (`ps-`, `pe-`, `ms-`, `me-`, `border-s-`)
