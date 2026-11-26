@@ -43,8 +43,10 @@ export function Header({ locale, navItems, languageToggleName, ctaText, brandNam
     <>
       <header
         className={clsx(
-          'fixed top-0 start-0 end-0 z-40 text-paper transition-all duration-500',
-          scrolled ? 'bg-ink/90 shadow-[0_10px_30px_rgba(0,0,0,0.25)] backdrop-blur-md' : 'bg-ink'
+          'fixed top-0 start-0 end-0 z-40 border-b text-ink transition-all duration-500',
+          scrolled
+            ? 'border-line bg-paper/90 shadow-[0_10px_30px_rgba(29,53,112,0.08)] backdrop-blur-md'
+            : 'border-transparent bg-paper'
         )}
       >
         <div
@@ -55,16 +57,15 @@ export function Header({ locale, navItems, languageToggleName, ctaText, brandNam
         >
           {/* Logo */}
           <Link href={`/${locale}`} className="flex flex-shrink-0 items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-paper">
-              <Image
-                src="/images/logo/asmaa_logo_moderate_boost.png"
-                alt=""
-                width={32}
-                height={37}
-                className="h-[37px] w-8 object-contain"
-                priority
-              />
-            </span>
+            {/* On the light ground the logo needs no badge behind it */}
+            <Image
+              src="/images/logo/asmaa_logo_moderate_boost.png"
+              alt=""
+              width={44}
+              height={51}
+              className="h-[51px] w-11 object-contain"
+              priority
+            />
             <span className="whitespace-nowrap font-display text-lg font-semibold">{brandName}</span>
           </Link>
 
@@ -79,7 +80,7 @@ export function Header({ locale, navItems, languageToggleName, ctaText, brandNam
                   aria-current={isActive ? 'page' : undefined}
                   className={clsx(
                     'relative whitespace-nowrap rounded-full px-3 py-2 text-[0.95rem] transition-colors duration-200',
-                    isActive ? 'text-paper' : 'text-paper/75 hover:text-paper'
+                    isActive ? 'font-semibold text-ink' : 'text-muted hover:text-ink'
                   )}
                 >
                   {item.label}
@@ -94,13 +95,13 @@ export function Header({ locale, navItems, languageToggleName, ctaText, brandNam
           <div className="hidden items-center gap-3 min-[1360px]:flex">
             <Link
               href={toggleHref}
-              className="inline-flex h-11 items-center whitespace-nowrap rounded-full border border-paper/35 px-4 text-[0.95rem] transition-colors duration-200 hover:border-paper"
+              className="inline-flex h-11 items-center whitespace-nowrap rounded-full border border-line px-4 text-[0.95rem] transition-colors duration-200 hover:border-ink"
             >
               {languageToggleName}
             </Link>
             <Link
               href={`/${locale}/contact`}
-              className="pill h-11 whitespace-nowrap bg-[var(--color-accent)] px-5 text-[0.95rem] text-ink"
+              className="pill h-11 whitespace-nowrap bg-navy px-5 text-[0.95rem] text-paper"
             >
               {ctaText}
             </Link>
@@ -112,9 +113,9 @@ export function Header({ locale, navItems, languageToggleName, ctaText, brandNam
             className="flex h-11 w-11 cursor-pointer flex-col items-center justify-center gap-1.5 min-[1360px]:hidden"
             aria-label={locale === 'ar' ? 'فتح القائمة' : 'Open menu'}
           >
-            <span className="h-0.5 w-6 bg-paper" />
-            <span className="h-0.5 w-6 bg-paper" />
-            <span className="h-0.5 w-4 self-end bg-paper me-2.5" />
+            <span className="h-0.5 w-6 bg-ink" />
+            <span className="h-0.5 w-6 bg-ink" />
+            <span className="h-0.5 w-4 self-end bg-ink me-2.5" />
           </button>
         </div>
       </header>
@@ -132,7 +133,7 @@ export function Header({ locale, navItems, languageToggleName, ctaText, brandNam
       />
 
       {/* Spacer for fixed header */}
-      <div className="h-[80px] bg-ink" />
+      <div className="h-[80px] bg-paper" />
     </>
   );
 }

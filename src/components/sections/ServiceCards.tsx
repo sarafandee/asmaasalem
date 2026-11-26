@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import { StaggerChildren, StaggerItem } from '@/components/animation/StaggerChildren';
 import type { Locale } from '@/lib/i18n/config';
-import { LUSCHER_COLORS } from '@/lib/palette';
+import { LEAF_COLORS } from '@/lib/palette';
 
 interface ServiceCardsProps {
   locale: Locale;
@@ -13,7 +13,7 @@ interface ServiceCardsProps {
   platformLabel: string;
 }
 
-const FILLS = [LUSCHER_COLORS.blue.fill, LUSCHER_COLORS.red.fill, LUSCHER_COLORS.green.fill];
+const FILLS = [LEAF_COLORS.blue.fill, LEAF_COLORS.red.fill, LEAF_COLORS.green.fill];
 
 export function ServiceCards({ locale, tag, heading, services, bookLabel, platformLabel }: ServiceCardsProps) {
   return (
@@ -37,7 +37,7 @@ export function ServiceCards({ locale, tag, heading, services, bookLabel, platfo
                     className="leaf leaf-turn block h-[60px] w-[60px]"
                     style={{ backgroundColor: FILLS[i % FILLS.length] }}
                   />
-                  <span className="font-display text-[2.5rem] font-extrabold text-[#6b6560]">
+                  <span className="font-display text-[2.5rem] font-extrabold text-ink/25">
                     0{i + 1}
                   </span>
                 </div>

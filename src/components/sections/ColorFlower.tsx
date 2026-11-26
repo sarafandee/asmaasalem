@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { LUSCHER_COLORS, type LuscherColor } from '@/lib/palette';
+import { LEAF_COLORS, type LuscherColor } from '@/lib/palette';
 
 /** Petal order around the flower, matching the four leaves of the logo. */
 export const PETALS: { color: LuscherColor; rotate: number }[] = [
@@ -22,7 +22,7 @@ interface ColorFlowerProps {
 }
 
 /**
- * Four leaf-shaped petals in the Lüscher colours, meeting at one point.
+ * Four leaf-shaped petals in the logo colours, meeting at one point.
  * Purely decorative: always aria-hidden.
  */
 export function ColorFlower({ petal, highlight, outline, sway = true, className }: ColorFlowerProps) {
@@ -44,7 +44,7 @@ export function ColorFlower({ petal, highlight, outline, sway = true, className 
               ...(outline
                 ? { border: '2px solid currentColor', opacity: 0.22, boxSizing: 'border-box' }
                 : {
-                    backgroundColor: LUSCHER_COLORS[p.color].fill,
+                    backgroundColor: LEAF_COLORS[p.color].fill,
                     opacity: highlight && highlight !== p.color ? 0.22 : 1,
                   }),
             }}

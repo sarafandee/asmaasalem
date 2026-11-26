@@ -65,12 +65,12 @@ export default async function AboutPage({
       <CertificateGallery credentials={dict.about.credentials} viewLabel={dict.about.viewCertificate} />
 
       {/* Career story */}
-      <section className="bg-navy text-paper">
+      <section className="on-navy bg-navy text-paper">
         <Container className="max-w-[1240px] py-[var(--spacing-section)]">
           <ScrollReveal>
             <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
               <h2 className="text-[clamp(1.8rem,3.2vw,2.75rem)]">{dict.about.careerStory.title}</h2>
-              <div className="flex flex-col gap-5 text-paper/85">
+              <div className="flex flex-col gap-5 text-on-navy">
                 {dict.about.careerStory.paragraphs.map((p: string, i: number) => (
                   <p key={i}>{p}</p>
                 ))}

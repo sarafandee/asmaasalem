@@ -15,7 +15,7 @@ interface CTASectionProps {
 
 export function CTASection({ title, description, subtitle, buttonText, locale, href }: CTASectionProps) {
   return (
-    <section className="relative overflow-hidden bg-lu-yellow text-ink">
+    <section className="relative overflow-hidden bg-leaf-yellow text-ink">
       <div className="anim-spin-slow pointer-events-none absolute -end-36 -top-36 text-ink">
         <ColorFlower petal={190} outline sway={false} />
       </div>
@@ -25,7 +25,7 @@ export function CTASection({ title, description, subtitle, buttonText, locale, h
         </ScrollReveal>
         {description && (
           <ScrollReveal delay={0.1}>
-            <p className="max-w-[40em] text-lg text-[#2a2722]">{description}</p>
+            <p className="max-w-[40em] text-lg text-ink/85">{description}</p>
           </ScrollReveal>
         )}
         {subtitle && (
@@ -34,7 +34,7 @@ export function CTASection({ title, description, subtitle, buttonText, locale, h
           </ScrollReveal>
         )}
         <ScrollReveal delay={0.2}>
-          <Link href={href ?? `/${locale}/contact`} className="pill mt-2 h-[60px] bg-ink px-9 text-lg text-paper">
+          <Link href={href ?? `/${locale}/contact`} className="pill mt-2 h-[60px] bg-navy px-9 text-lg text-paper">
             {buttonText}
             <span aria-hidden="true" className="flip-rtl">→</span>
           </Link>
