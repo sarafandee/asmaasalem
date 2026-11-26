@@ -26,18 +26,14 @@ const plexArabic = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
   metadataBase: new URL('https://asmaasalem.com'),
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
     apple: '/apple-touch-icon.png',
   },
-  openGraph: {
-    type: 'website',
-    siteName: 'Asmaa Salem | Life Coach',
-    images: [{ url: '/images/og-image.png', width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    images: ['/images/og-image.png'],
-  },
+  manifest: '/site.webmanifest',
 };
 
 export function generateStaticParams() {

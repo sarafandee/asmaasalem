@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { Locale } from '@/lib/i18n/config';
 import { locales } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
+import { pageMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import { PageHero } from '@/components/sections/PageHero';
@@ -21,28 +22,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const title = `${dict.nav.about} | ${dict.meta.siteTitle}`;
-  return {
-    title,
-    description: dict.meta.aboutDescription,
-    alternates: {
-      canonical: `https://asmaasalem.com/${locale}/about`,
-      languages: {
-        ar: 'https://asmaasalem.com/ar/about',
-        en: 'https://asmaasalem.com/en/about',
-      },
-    },
-    openGraph: {
-      title,
-      description: dict.meta.aboutDescription,
-      url: `https://asmaasalem.com/${locale}/about`,
-      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      title,
-      description: dict.meta.aboutDescription,
-    },
-  };
+  return pageMetadata(locale as Locale, '/about', title, dict.meta.aboutDescription);
 }
 
 export default async function AboutPage({
