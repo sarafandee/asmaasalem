@@ -305,17 +305,27 @@
       "description": "Ready to book your session or have a question? Contact us now and begin your journey toward healing"
     },
     "form": {
-      "nameLabel": "Name",
-      "namePlaceholder": "Enter your name",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Enter your full name",
       "emailLabel": "Email",
-      "emailPlaceholder": "Enter your email",
-      "phoneLabel": "Phone (optional)",
-      "phonePlaceholder": "Enter your phone number",
-      "messageLabel": "Message",
+      "emailPlaceholder": "you@example.com",
+      "countryLabel": "Country of residence",
+      "countryPlaceholder": "Where do you live?",
+      "phoneLabel": "Phone number",
+      "phonePlaceholder": "Include your country code",
+      "topicLabel": "How can we help?",
+      "topics": {
+        "general": "General inquiry",
+        "booking": "Book a session",
+        "platform": "Inquire about the L\u00fcscher Platform"
+      },
+      "messageLabel": "Your inquiry (optional)",
       "messagePlaceholder": "Write your message here",
       "submitText": "Send",
+      "sendingText": "Sending\u2026",
       "successMessage": "Your message was sent successfully! We'll get back to you soon.",
-      "errorMessage": "Something went wrong. Please try again."
+      "errorMessage": "Something went wrong. Please try again.",
+      "invalidMessage": "Please fill in every required field with a valid email."
     }
   },
   "footer": {

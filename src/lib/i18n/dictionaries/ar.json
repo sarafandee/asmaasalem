@@ -304,17 +304,27 @@
       "description": "جاهز لحجز جلستك أو لديك استفسار؟ تواصل معنا الآن وابدأ رحلتك نحو التشافي"
     },
     "form": {
-      "nameLabel": "الاسم",
-      "namePlaceholder": "أدخل اسمك",
+      "nameLabel": "الاسم بالكامل",
+      "namePlaceholder": "أدخل اسمك بالكامل",
       "emailLabel": "البريد الإلكتروني",
-      "emailPlaceholder": "أدخل بريدك الإلكتروني",
-      "phoneLabel": "رقم الهاتف (اختياري)",
-      "phonePlaceholder": "أدخل رقم هاتفك",
-      "messageLabel": "الرسالة",
+      "emailPlaceholder": "you@example.com",
+      "countryLabel": "بلد الإقامة",
+      "countryPlaceholder": "أين تقيم؟",
+      "phoneLabel": "رقم الهاتف",
+      "phonePlaceholder": "مع رمز الدولة",
+      "topicLabel": "كيف يمكننا مساعدتك؟",
+      "topics": {
+        "general": "استفسار عام",
+        "booking": "طلب حجز جلسة",
+        "platform": "طلب معلومات أكثر عن منصة لوشر"
+      },
+      "messageLabel": "استفسارك (اختياري)",
       "messagePlaceholder": "اكتب رسالتك هنا",
       "submitText": "إرسال",
+      "sendingText": "جارٍ الإرسال…",
       "successMessage": "تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.",
-      "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى."
+      "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      "invalidMessage": "يرجى تعبئة جميع الحقول المطلوبة وإدخال بريد إلكتروني صحيح."
     }
   },
   "footer": {
