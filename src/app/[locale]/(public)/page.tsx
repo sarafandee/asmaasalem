@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { Locale } from '@/lib/i18n/config';
 import { locales } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
+import { pageMetadata } from '@/lib/seo';
 import { HeroBanner } from '@/components/sections/HeroBanner';
 import { MetaHealthExplainer } from '@/components/sections/MetaHealthExplainer';
 import { LuscherInfo } from '@/components/sections/LuscherInfo';
@@ -21,28 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  return {
-    title: dict.meta.siteTitle,
-    description: dict.meta.homeDescription,
-    alternates: {
-      canonical: `https://asmaasalem.com/${locale}`,
-      languages: {
-        ar: 'https://asmaasalem.com/ar',
-        en: 'https://asmaasalem.com/en',
-      },
-    },
-    openGraph: {
-      title: dict.meta.siteTitle,
-      description: dict.meta.homeDescription,
-      url: `https://asmaasalem.com/${locale}`,
-      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      title: dict.meta.siteTitle,
-      description: dict.meta.homeDescription,
-    },
-  };
+  return pageMetadata(locale as Locale, '', dict.meta.siteTitle, dict.meta.homeDescription);
 }
 
 export default async function HomePage({

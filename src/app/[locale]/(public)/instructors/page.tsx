@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { Locale } from '@/lib/i18n/config';
 import { locales } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/sections/PageHero';
 import { InstructorPlatform } from '@/components/sections/InstructorPlatform';
 import { CTASection } from '@/components/sections/CTASection';
@@ -18,28 +19,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const title = `${dict.nav.instructors} | ${dict.meta.siteTitle}`;
-  return {
-    title,
-    description: dict.meta.instructorsDescription,
-    alternates: {
-      canonical: `https://asmaasalem.com/${locale}/instructors`,
-      languages: {
-        ar: 'https://asmaasalem.com/ar/instructors',
-        en: 'https://asmaasalem.com/en/instructors',
-      },
-    },
-    openGraph: {
-      title,
-      description: dict.meta.instructorsDescription,
-      url: `https://asmaasalem.com/${locale}/instructors`,
-      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      title,
-      description: dict.meta.instructorsDescription,
-    },
-  };
+  return pageMetadata(locale as Locale, '/instructors', title, dict.meta.instructorsDescription);
 }
 
 export default async function InstructorsPage({
