@@ -72,8 +72,6 @@ export default async function HomePage({
         tag={home.metahealth.tag}
         title={home.metahealth.title}
         paragraphs={home.metahealth.paragraphs}
-        inhale={home.metahealth.inhale}
-        exhale={home.metahealth.exhale}
       />
       <LuscherInfo
         tag={home.luscher.tag}
