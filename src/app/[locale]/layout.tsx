@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cairo } from 'next/font/google';
+import { Cairo, Alexandria, IBM_Plex_Sans_Arabic } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { locales, localeConfig } from '@/lib/i18n/config';
 import type { Locale } from '@/lib/i18n/config';
@@ -7,6 +7,19 @@ import type { Locale } from '@/lib/i18n/config';
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
   variable: '--font-cairo',
+  display: 'swap',
+});
+
+const alexandria = Alexandria({
+  subsets: ['arabic', 'latin'],
+  variable: '--font-alexandria',
+  display: 'swap',
+});
+
+const plexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic', 'latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-plex-arabic',
   display: 'swap',
 });
 
@@ -46,14 +59,20 @@ export default async function LocaleLayout({
 
   const typedLocale = locale as Locale;
   const config = localeConfig[typedLocale];
-  const accentColor = typedLocale === 'ar' ? '#ff523d' : '#0195ff';
+  const isAr = typedLocale === 'ar';
+  const themeVars = {
+    '--color-accent': isAr ? '#ff523d' : '#0195ff',
+    // Accent shades that pass WCAG AA as text on paper and on ink backgrounds
+    '--color-accent-text': isAr ? '#b23a26' : '#0062b0',
+    '--color-accent-on-dark': isAr ? '#ff8a78' : '#5cb8ff',
+  } as React.CSSProperties;
 
   return (
     <html
       lang={config.lang}
       dir={config.dir}
-      className={cairo.variable}
-      style={{ '--color-accent': accentColor } as React.CSSProperties}
+      className={`${cairo.variable} ${alexandria.variable} ${plexArabic.variable}`}
+      style={themeVars}
     >
       <body className="min-h-screen flex flex-col">
         {children}

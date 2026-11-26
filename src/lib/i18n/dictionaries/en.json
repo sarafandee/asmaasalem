@@ -14,13 +14,19 @@
     "instructors": "Luscher Support Platform",
     "testimonials": "Testimonials",
     "contact": "Reach Out",
-    "languageToggle": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+    "languageToggle": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+    "brand": "Asmaa Salem"
   },
   "home": {
     "hero": {
       "title": "Colors are the mirror to your tapestry of emotions.... Rediscover yourself and uncover the root of your illnesses with the L\u00fcscher Color Diagnostic Test and Meta-Health",
       "subtitle": "Uncover the profound messages hidden within your emotions and physical symptoms with Asmaa Salem, a specialized life coach. Through a scientific methodology utilizing the L\u00fcscher Color Test and Meta-Health, you'll delve into the roots of your emotional and physical stress to embark on a transformative journey towards holistic well-being",
-      "ctaText": "Book Your Session Now!"
+      "ctaText": "Book Your Session Now!",
+      "kicker": "Specialized Life Coach \u00b7 L\u00fcscher & Meta-Health",
+      "titleLead": "Colors are the mirror to your",
+      "titleHighlight": "tapestry of emotions",
+      "titleRest": "Rediscover yourself and uncover the root of your illnesses with the L\u00fcscher Color Diagnostic Test and Meta-Health",
+      "secondaryCta": "What is Meta-Health?"
     },
     "metahealth": {
       "title": "What is Meta-Health?",
@@ -29,7 +35,10 @@
         "There is something invisible within us\u2014our thoughts and emotions\u2014that has the power to trigger a specific biological response in the body. Every emotion we experience sends a signal through the nervous system, and over time, unresolved emotional patterns can manifest as physical symptoms.",
         "In a healthy emotional state, when we feel something, we naturally do one of two things: either we fully experience and release that feeling, or we let it pass on its own. This process is similar to breathing: feeling emotions is like inhaling, and letting go is like exhaling. It is a natural, continuous cycle that keeps us in balance.",
         "But sometimes, we unconsciously hold on to emotions, unable to process or release them. These suppressed emotions can settle anywhere in the body, disrupting its natural energy flow. Since our bodies are made of vibrational energy, trapped emotions disturb that natural vibration, eventually leading to physical symptoms and illness."
-      ]
+      ],
+      "tag": "Meta-Health",
+      "inhale": "Inhale\u2026 feel it",
+      "exhale": "Exhale\u2026 let it go"
     },
     "luscher": {
       "title": "The L\u00fcscher Color Test",
@@ -37,6 +46,19 @@
         "The L\u00fcscher Color Test is a psychological tool developed over 70 years ago by Dr. Max L\u00fcscher\u2014a Swiss doctor, psychotherapist, university professor, psychologist, psychiatrist, and an author. L\u00fcscher's innovative approach uses color selection as a gateway into the emotional world, bypassing the need for direct questioning and allowing clients to reveal their inner states naturally through their color preferences.",
         "What makes Dr. L\u00fcscher's work so groundbreaking is the level of psychological depth he encoded into the color test templates. It explores a complex network of human emotions, including: overall mood, conscious emotions, expected behaviors, personality traits, emotions toward relationships, self-perception, feelings toward responsibilities and tasks, and emotional outlook on the future.",
         "The test also pinpoints areas of tension in daily life, reveals hidden sources of frustration, highlights coping strategies, and offers powerful insight into the motivations behind behavior."
+      ],
+      "tag": "L\u00fcscher",
+      "yearsLabel": "years since Dr. Max L\u00fcscher created the test",
+      "revealsTitle": "What the colour templates explore",
+      "dimensions": [
+        "Overall mood",
+        "Conscious emotions",
+        "Expected behaviors",
+        "Personality traits",
+        "Relationships",
+        "Self-perception",
+        "Responsibilities & tasks",
+        "Outlook on the future"
       ]
     },
     "services": {
@@ -54,13 +76,44 @@
           "title": "L\u00fcscher Support Platform",
           "description": "Access my dedicated platform designed to support certified L\u00fcscher students and practitioners in efficiently and accurately analyzing the L\u00fcscher Color Test. Benefit from a variety of insights and interpretations drawn from multiple trusted sources to enhance the depth and quality of your test results."
         }
-      ]
+      ],
+      "tag": "Services",
+      "bookLabel": "Book a session",
+      "platformLabel": "Explore the platform"
     },
     "cta": {
       "title": "It's time to take control of your life",
       "description": "Through the Max L\u00fcscher Color Test, we'll take a journey together\u2014one that helps you discover yourself and uncover the emotions and thoughts hidden in your subconscious. With the support of Meta-Health, I'll help you identify the emotional and mental imbalances that may be contributing to your physical and psychological symptoms.",
       "joinTitle": "Join me now on your own personal journey of transformation",
       "buttonText": "Book Your Session Now!"
+    },
+    "pick": {
+      "prompt": "Which colour draws you in right now? Pick one",
+      "chose": "You chose {color}.",
+      "after": "In a full L\u00fcscher session, the order you choose the colours in is the gateway into your emotional world.",
+      "colors": {
+        "blue": "blue",
+        "green": "green",
+        "red": "red",
+        "yellow": "yellow"
+      }
+    },
+    "ribbon": [
+      "L\u00fcscher Color Test",
+      "Meta-Health",
+      "Emotions",
+      "Body",
+      "Balance",
+      "Transformation"
+    ],
+    "aboutTeaser": {
+      "tag": "About Asmaa",
+      "link": "Certifications & Biography",
+      "imageAlt": "A hand holding a sprout with four coloured leaves"
+    },
+    "testimonials": {
+      "title": "Success Stories from My Clients",
+      "viewAll": "Read all stories"
     }
   },
   "about": {
@@ -413,8 +466,8 @@
         "ambivalence": {
           "title": "Ambivalence",
           "noAmbivalence": "No ambivalent colors detected between selections.",
-          "preferredToRejected": "Preferred → Rejected",
-          "rejectedToPreferred": "Rejected → Preferred"
+          "preferredToRejected": "Preferred \u2192 Rejected",
+          "rejectedToPreferred": "Rejected \u2192 Preferred"
         },
         "comparison": {
           "title": "Selection Comparison",

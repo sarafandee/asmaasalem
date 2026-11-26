@@ -13,8 +13,24 @@
   --color-sand: #f0ebe4;
   --color-light-gray: #f5f5f5;
 
+  /* ─── Living Spectrum (public site) ─── */
+  --color-ink: #14161b;
+  --color-paper: #f6f1e8;
+  --color-paper-deep: #ede5d8;
+  --color-card: #fffdf9;
+  --color-line: #e5dccd;
+  --color-muted: #4a4640;
+  --color-navy: #17224a;
+  --color-lu-blue: #2b4fa8;
+  --color-lu-green: #23a07d;
+  --color-lu-green-text: #146b52;
+  --color-lu-red: #f0503a;
+  --color-lu-yellow: #f5c230;
+
   /* ─── Typography ─── */
   --font-body: var(--font-cairo), Arial, system-ui, sans-serif;
+  --font-display: var(--font-alexandria), var(--font-plex-arabic), system-ui, sans-serif;
+  --font-text: var(--font-plex-arabic), system-ui, sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.8125rem;
@@ -79,6 +95,116 @@ h1 { font-size: var(--font-size-xl); }
 h2 { font-size: var(--font-size-lg); }
 h3 { font-size: var(--font-size-md); }
 
+/* ─── Living Spectrum: public site scope ─── */
+
+.site {
+  font-family: var(--font-text);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-size: clamp(1rem, 0.35vw + 0.92rem, 1.125rem);
+  line-height: 1.8;
+  /* Live mood colour: the hero colour pick overrides these on .mood */
+  --live-fill: var(--color-accent);
+  --live-ink: var(--color-ink);
+  --live-on-dark: var(--color-accent-on-dark);
+}
+
+.site h1,
+.site h2,
+.site h3,
+.site .font-display {
+  font-family: var(--font-display);
+}
+
+.site h1 { font-weight: 800; line-height: 1.12; }
+.site h2 { font-weight: 800; line-height: 1.18; }
+.site h3 { font-weight: 600; line-height: 1.4; }
+.site p { text-wrap: pretty; }
+
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Leaf shape taken from the logo's petals */
+.leaf { border-radius: 0 100% 0 100%; }
+
+@keyframes ls-spin { to { transform: rotate(360deg); } }
+@keyframes ls-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes ls-sway {
+  0%, 100% { transform: rotate(-5deg) scale(0.96); }
+  50% { transform: rotate(5deg) scale(1.04); }
+}
+@keyframes ls-breathe {
+  0%, 100% { transform: scale(0.62); }
+  50% { transform: scale(1); }
+}
+@keyframes ls-ring {
+  0%, 100% { transform: scale(0.8); opacity: 0.25; }
+  50% { transform: scale(1.08); opacity: 0.6; }
+}
+@keyframes ls-inhale { 0%, 44% { opacity: 1; } 50%, 94% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes ls-exhale { 0%, 44% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes ls-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes ls-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes ls-marquee-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
+
+.anim-spin { animation: ls-spin 90s linear infinite; }
+.anim-spin-slow { animation: ls-spin 140s linear infinite; }
+.anim-spin-rev { animation: ls-spin-rev 60s linear infinite; }
+.anim-sway { transform-origin: 0 0; animation: ls-sway 7s ease-in-out infinite; }
+.anim-breathe { animation: ls-breathe 10s ease-in-out infinite; }
+.anim-ring { animation: ls-ring 10s ease-in-out infinite; }
+.anim-inhale { animation: ls-inhale 10s ease-in-out infinite; }
+.anim-exhale { animation: ls-exhale 10s ease-in-out infinite; }
+.anim-float { animation: ls-float 6s ease-in-out infinite; }
+.anim-marquee { animation: ls-marquee var(--marquee-duration, 48s) linear infinite; }
+[dir='rtl'] .anim-marquee { animation-name: ls-marquee-rtl; }
+.marquee-pause:hover .anim-marquee { animation-play-state: paused; }
+
+.fade-edges {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.lift {
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+.lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(20, 22, 27, 0.12);
+}
+.lift .leaf-turn { transition: transform 0.8s var(--ease-out-expo); }
+.lift:hover .leaf-turn { transform: rotate(90deg) scale(1.15); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s, background-color 0.6s, color 0.6s;
+}
+.pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(20, 22, 27, 0.28);
+}
+.pill:focus-visible,
+.site a:focus-visible,
+.site button:focus-visible {
+  outline: 3px solid var(--live-on-dark);
+  outline-offset: 3px;
+}
+
+/* Arrows point in the reading direction */
+[dir='rtl'] .flip-rtl { transform: scaleX(-1); }
+
 /* ─── Selection ─── */
 
 ::selection {
@@ -104,6 +230,7 @@ h3 { font-size: var(--font-size-md); }
 /* ─── Reduced Motion ─── */
 
 @media (prefers-reduced-motion: reduce) {
+  [class*='anim-'] { animation: none !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

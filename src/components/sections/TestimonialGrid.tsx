@@ -1,5 +1,8 @@
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
+import { LUSCHER_COLORS } from '@/lib/palette';
+
+const LEAF_FILLS = Object.values(LUSCHER_COLORS).map((c) => c.fill);
 
 interface TestimonialGridProps {
   testimonials: { name: string; quote: string }[];
@@ -7,19 +10,20 @@ interface TestimonialGridProps {
 
 export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
   return (
-    <section className="py-[var(--spacing-section)] bg-cream">
-      <Container>
+    <section className="py-[var(--spacing-section)]">
+      <Container className="max-w-[1240px]">
         <div className="grid gap-6 md:grid-cols-2">
           {testimonials.map((t, i) => (
             <ScrollReveal key={i}>
-              <div className="flex h-full flex-col rounded-xl bg-white p-5 sm:p-8 shadow-[var(--shadow-sm)] transition-shadow duration-300 hover:shadow-[var(--shadow-md)]">
-                {/* Decorative open quote */}
-                <span className="block text-4xl leading-none text-[var(--color-accent)]/30 font-serif mb-3">&ldquo;</span>
-                <p className="text-base leading-relaxed text-charcoal/80 mb-5">{t.quote}</p>
-                <p className="text-sm font-bold text-charcoal">
-                  <span className="text-[var(--color-accent)]">&mdash;</span> {t.name}
-                </p>
-              </div>
+              <figure className="lift flex h-full flex-col gap-5 rounded-[28px] border border-line bg-card p-7 sm:p-9">
+                <span
+                  aria-hidden="true"
+                  className="leaf leaf-turn block h-8 w-8"
+                  style={{ backgroundColor: LEAF_FILLS[i % LEAF_FILLS.length] }}
+                />
+                <blockquote className="flex-1 text-base leading-relaxed sm:text-[1.05rem]">{t.quote}</blockquote>
+                <figcaption className="font-semibold text-muted">— {t.name}</figcaption>
+              </figure>
             </ScrollReveal>
           ))}
         </div>

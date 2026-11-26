@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 
 interface BioSectionProps {
@@ -9,37 +8,31 @@ interface BioSectionProps {
 
 export function BioSection({ quote, paragraphs }: BioSectionProps) {
   return (
-    <section className="bg-cream py-[var(--spacing-section)]">
-      <Container narrow>
+    <section className="bg-paper-deep">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-12 px-5 py-[var(--spacing-section)] sm:px-8 md:grid-cols-[1fr_1.3fr] md:gap-20">
         <ScrollReveal>
-          {/* Profile image — centered with accent ring */}
-          <div className="relative mx-auto mb-8 w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 overflow-hidden rounded-full ring-4 ring-[var(--color-accent)]/20 ring-offset-4 ring-offset-cream">
+          <div className="grid place-items-center">
             <Image
               src="/images/about/profile.png"
-              alt="Asmaa Salem"
-              fill
-              className="object-cover"
-              sizes="224px"
+              alt=""
+              width={380}
+              height={380}
+              className="anim-float aspect-square w-full max-w-[360px] rounded-full object-cover mix-blend-multiply"
+              sizes="(max-width: 768px) 70vw, 360px"
             />
           </div>
-
-          {/* Quote with accent border */}
-          <div className="border-s-4 border-[var(--color-accent)] ps-6 mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-charcoal">
-              {quote}
-            </h2>
-          </div>
-
-          {/* Bio paragraphs */}
-          <div className="space-y-4">
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <div className="flex flex-col gap-6">
+            <h2 className="text-[clamp(1.7rem,3vw,2.5rem)] font-semibold leading-snug">“{quote}”</h2>
             {paragraphs.map((p, i) => (
-              <p key={i} className="text-base leading-relaxed text-charcoal/80">
+              <p key={i} className="text-muted">
                 {p}
               </p>
             ))}
           </div>
         </ScrollReveal>
-      </Container>
+      </div>
     </section>
   );
 }

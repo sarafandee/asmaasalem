@@ -1,45 +1,53 @@
-import Image from 'next/image';
-import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 
 interface MetaHealthExplainerProps {
+  tag: string;
   title: string;
   paragraphs: string[];
+  inhale: string;
+  exhale: string;
 }
 
-export function MetaHealthExplainer({ title, paragraphs }: MetaHealthExplainerProps) {
+export function MetaHealthExplainer({ tag, title, paragraphs, inhale, exhale }: MetaHealthExplainerProps) {
+  const [lead, second, ...rest] = paragraphs;
+
   return (
-    <section className="bg-cream py-[var(--spacing-section)]">
-      <Container>
-        <div className="grid gap-8 sm:gap-10 md:grid-cols-2 md:gap-16 items-center">
-          <ScrollReveal direction="left">
-            <div className="relative aspect-square max-w-md mx-auto md:mx-0 overflow-hidden rounded-2xl shadow-[var(--shadow-md)]">
-              <Image
-                src="/images/services/metahealth.png"
-                alt={title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="right" delay={0.15}>
-            <div>
-              <div className="mb-4 h-1 w-12 rounded-full bg-[var(--color-accent)]" />
-              <h2 className="text-2xl sm:text-[var(--font-size-lg)] font-bold text-charcoal mb-4 sm:mb-6">
-                {title}
-              </h2>
-              <div className="space-y-4">
-                {paragraphs.map((p, i) => (
-                  <p key={i} className="text-base leading-relaxed text-charcoal/80">
+    <section id="meta-health" className="scroll-mt-24">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-16 px-5 py-[var(--spacing-section)] sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+        <ScrollReveal>
+          <div className="flex flex-col gap-6">
+            <span className="eyebrow text-lu-green-text">01 — {tag}</span>
+            <h2 className="text-[clamp(2.1rem,4vw,3.4rem)]">{title}</h2>
+            {lead && <p className="text-xl font-medium leading-relaxed md:text-[1.35rem]">{lead}</p>}
+            {second && <p className="text-muted">{second}</p>}
+            {rest.length > 0 && (
+              <div className="grid gap-7 border-t border-line pt-6 sm:grid-cols-2">
+                {rest.map((p, i) => (
+                  <p key={i} className="text-base text-muted">
                     {p}
                   </p>
                 ))}
               </div>
+            )}
+          </div>
+        </ScrollReveal>
+
+        {/* Breathing: feel (inhale) and let go (exhale) */}
+        <ScrollReveal delay={0.15}>
+          <div className="flex flex-col items-center gap-6">
+            <div aria-hidden="true" className="relative grid aspect-square w-full max-w-[420px] place-items-center">
+              <div className="anim-ring absolute inset-0 rounded-full border-2 border-lu-green" />
+              <div className="anim-ring absolute inset-[12%] rounded-full border border-lu-green" style={{ animationDelay: '0.4s' }} />
+              <div className="anim-breathe absolute inset-[20%] rounded-full bg-lu-green" />
+              <div className="anim-breathe absolute inset-[36%] rounded-full bg-paper/90" style={{ animationDelay: '0.15s' }} />
             </div>
-          </ScrollReveal>
-        </div>
-      </Container>
+            <div className="relative h-10 w-full text-center font-display text-xl font-semibold text-lu-green-text">
+              <span className="anim-inhale absolute inset-0">{inhale}</span>
+              <span className="anim-exhale absolute inset-0 opacity-0">{exhale}</span>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }

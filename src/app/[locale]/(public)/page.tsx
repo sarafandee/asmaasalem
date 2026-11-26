@@ -7,6 +7,10 @@ import { MetaHealthExplainer } from '@/components/sections/MetaHealthExplainer';
 import { LuscherInfo } from '@/components/sections/LuscherInfo';
 import { ServiceCards } from '@/components/sections/ServiceCards';
 import { CTASection } from '@/components/sections/CTASection';
+import { MoodProvider } from '@/components/sections/MoodProvider';
+import { WordRibbon } from '@/components/sections/WordRibbon';
+import { AboutTeaser } from '@/components/sections/AboutTeaser';
+import { TestimonialMarquee } from '@/components/sections/TestimonialMarquee';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -51,30 +55,68 @@ export default async function HomePage({
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
 
+  const home = dict.home;
+  const typedLocale = locale as Locale;
+
   return (
-    <>
+    <MoodProvider>
       <HeroBanner
-        title={dict.home.hero.title}
-        subtitle={dict.home.hero.subtitle}
-        ctaText={dict.home.hero.ctaText}
-        locale={locale as Locale}
+        locale={typedLocale}
+        kicker={home.hero.kicker}
+        titleLead={home.hero.titleLead}
+        titleHighlight={home.hero.titleHighlight}
+        titleRest={home.hero.titleRest}
+        subtitle={home.hero.subtitle}
+        ctaText={home.hero.ctaText}
+        secondaryCta={home.hero.secondaryCta}
+        pick={home.pick}
       />
+      <WordRibbon words={home.ribbon} />
       <MetaHealthExplainer
-        title={dict.home.metahealth.title}
-        paragraphs={dict.home.metahealth.paragraphs}
+        tag={home.metahealth.tag}
+        title={home.metahealth.title}
+        paragraphs={home.metahealth.paragraphs}
+        inhale={home.metahealth.inhale}
+        exhale={home.metahealth.exhale}
       />
       <LuscherInfo
-        title={dict.home.luscher.title}
-        paragraphs={dict.home.luscher.paragraphs}
+        tag={home.luscher.tag}
+        title={home.luscher.title}
+        paragraphs={home.luscher.paragraphs}
+        yearsLabel={home.luscher.yearsLabel}
+        revealsTitle={home.luscher.revealsTitle}
+        dimensions={home.luscher.dimensions}
       />
-      <ServiceCards heading={dict.home.services.title} services={dict.home.services.items} />
+      <ServiceCards
+        locale={typedLocale}
+        tag={home.services.tag}
+        heading={home.services.title}
+        services={home.services.items}
+        bookLabel={home.services.bookLabel}
+        platformLabel={home.services.platformLabel}
+      />
+      <AboutTeaser
+        locale={typedLocale}
+        tag={home.aboutTeaser.tag}
+        quote={dict.about.hero.quote}
+        name={dict.about.hero.title}
+        subtitle={dict.about.hero.subtitle}
+        linkLabel={home.aboutTeaser.link}
+        imageAlt={home.aboutTeaser.imageAlt}
+      />
+      <TestimonialMarquee
+        locale={typedLocale}
+        title={home.testimonials.title}
+        viewAll={home.testimonials.viewAll}
+        testimonials={dict.testimonials.items}
+      />
       <CTASection
-        title={dict.home.cta.title}
-        description={dict.home.cta.description}
-        subtitle={dict.home.cta.joinTitle}
-        buttonText={dict.home.cta.buttonText}
-        locale={locale as Locale}
+        title={home.cta.title}
+        description={home.cta.description}
+        subtitle={home.cta.joinTitle}
+        buttonText={home.cta.buttonText}
+        locale={typedLocale}
       />
-    </>
+    </MoodProvider>
   );
 }

@@ -7,10 +7,10 @@ const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfr6LN4Ou5wF9t
 
 export function ContactForm() {
   return (
-    <section className="bg-cream py-[var(--spacing-section)]">
+    <section className="py-[var(--spacing-section)]">
       <Container>
         <ScrollReveal>
-          <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl bg-white shadow-[var(--shadow-md)]">
+          <div className="mx-auto max-w-3xl overflow-hidden rounded-[32px] border border-line bg-white">
             <iframe
               src={GOOGLE_FORM_URL}
               width="100%"

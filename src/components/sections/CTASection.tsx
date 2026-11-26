@@ -1,7 +1,7 @@
-import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import type { Locale } from '@/lib/i18n/config';
+import { ColorFlower } from './ColorFlower';
 
 interface CTASectionProps {
   title: string;
@@ -9,38 +9,37 @@ interface CTASectionProps {
   subtitle?: string;
   buttonText: string;
   locale: Locale;
+  /** Where the button goes; defaults to the contact page. */
+  href?: string;
 }
 
-export function CTASection({ title, description, subtitle, buttonText, locale }: CTASectionProps) {
+export function CTASection({ title, description, subtitle, buttonText, locale, href }: CTASectionProps) {
   return (
-    <section className="bg-cream py-[var(--spacing-section)]">
-      <Container>
+    <section className="relative overflow-hidden bg-lu-yellow text-ink">
+      <div className="anim-spin-slow pointer-events-none absolute -end-36 -top-36 text-ink">
+        <ColorFlower petal={190} outline sway={false} />
+      </div>
+      <div className="relative mx-auto flex max-w-[1240px] flex-col gap-6 px-5 py-[var(--spacing-section)] sm:px-8">
         <ScrollReveal>
-          <div className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl bg-charcoal p-6 sm:p-10 md:p-14 text-center shadow-[var(--shadow-lg)]">
-            {/* Decorative accent glow */}
-            <div className="absolute -top-20 start-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full bg-[var(--color-accent)]/10 blur-3xl" />
-            <h2 className="relative text-xl md:text-2xl font-bold text-white mb-4">
-              {title}
-            </h2>
-            {description && (
-              <p className="relative text-sm md:text-base text-white/70 mb-6 leading-relaxed max-w-2xl mx-auto">
-                {description}
-              </p>
-            )}
-            {subtitle && (
-              <p className="relative text-base md:text-lg font-medium text-white/90 mb-8">
-                {subtitle}
-              </p>
-            )}
-            {!description && !subtitle && <div className="mb-4" />}
-            <div className="relative">
-              <Button href={`/${locale}/contact`} variant="primary" size="large">
-                {buttonText}
-              </Button>
-            </div>
-          </div>
+          <h2 className="max-w-[12em] text-[clamp(2.4rem,5.6vw,5rem)] leading-[1.1]">{title}</h2>
         </ScrollReveal>
-      </Container>
+        {description && (
+          <ScrollReveal delay={0.1}>
+            <p className="max-w-[40em] text-lg text-[#2a2722]">{description}</p>
+          </ScrollReveal>
+        )}
+        {subtitle && (
+          <ScrollReveal delay={0.15}>
+            <p className="text-xl font-semibold">{subtitle}</p>
+          </ScrollReveal>
+        )}
+        <ScrollReveal delay={0.2}>
+          <Link href={href ?? `/${locale}/contact`} className="pill mt-2 h-[60px] bg-ink px-9 text-lg text-paper">
+            {buttonText}
+            <span aria-hidden="true" className="flip-rtl">→</span>
+          </Link>
+        </ScrollReveal>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
+import { LUSCHER_COLORS } from '@/lib/palette';
+
+const PHASE_FILLS = [LUSCHER_COLORS.blue, LUSCHER_COLORS.green, LUSCHER_COLORS.red, LUSCHER_COLORS.yellow];
 
 interface SubItem {
   title: string;
@@ -31,12 +34,12 @@ const PHASE_IMAGES: Record<number, string> = {
 
 export function InstructorPlatform({ intro, phases }: InstructorPlatformProps) {
   return (
-    <section className="bg-cream py-[var(--spacing-section)]">
-      <Container>
+    <section className="py-[var(--spacing-section)]">
+      <Container className="max-w-[1240px]">
         {/* Intro paragraph */}
         {intro && (
           <ScrollReveal>
-            <p className="mx-auto mb-12 max-w-3xl text-center text-base leading-relaxed text-charcoal/80">
+            <p className="mx-auto mb-16 max-w-3xl text-center text-lg leading-relaxed text-muted md:text-xl">
               {intro}
             </p>
           </ScrollReveal>
@@ -50,34 +53,37 @@ export function InstructorPlatform({ intro, phases }: InstructorPlatformProps) {
 
             return (
               <ScrollReveal key={phase.number}>
-                <div className={`flex flex-col gap-6 rounded-2xl bg-white p-4 shadow-[var(--shadow-sm)] sm:gap-8 sm:p-6 md:p-8 lg:flex-row lg:items-center lg:gap-12 ${
+                <div className={`flex flex-col gap-6 rounded-[32px] border border-line bg-card p-5 sm:gap-8 sm:p-8 md:p-10 lg:flex-row lg:items-center lg:gap-14 ${
                   !isEven ? 'lg:flex-row-reverse' : ''
                 }`}>
                   {/* Text content */}
                   <div className="flex-1">
                     {/* Phase badge + title */}
                     <div className="mb-4 flex items-center gap-3">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent)]/80 text-sm font-bold text-white shadow-[var(--shadow-sm)]">
+                      <div
+                        className="leaf grid h-14 w-14 flex-shrink-0 place-items-center font-display text-xl font-extrabold"
+                        style={{ backgroundColor: PHASE_FILLS[index % PHASE_FILLS.length].fill, color: PHASE_FILLS[index % PHASE_FILLS.length].ink }}
+                      >
                         {phase.number}
                       </div>
                       <div>
-                        <h2 className="text-lg font-bold text-charcoal">{phase.title}</h2>
+                        <h2 className="text-xl">{phase.title}</h2>
                         {phase.subtitle && (
-                          <p className="text-sm font-medium text-[var(--color-accent)]">{phase.subtitle}</p>
+                          <p className="font-medium text-[var(--color-accent-text)]">{phase.subtitle}</p>
                         )}
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="mb-4 text-sm leading-relaxed text-charcoal/70">{phase.description}</p>
+                    <p className="mb-5 text-base leading-relaxed text-muted">{phase.description}</p>
 
                     {/* Sub-items */}
                     {phase.subItems && phase.subItems.length > 0 && (
-                      <div className="space-y-3 border-s-2 border-[var(--color-accent)]/20 ps-4">
+                      <div className="space-y-3">
                         {phase.subItems.map((item, i) => (
-                          <div key={i}>
-                            <h3 className="text-sm font-bold text-charcoal">{item.title}</h3>
-                            <p className="mt-0.5 text-xs sm:text-sm leading-relaxed text-charcoal/60">{item.description}</p>
+                          <div key={i} className="rounded-[20px] bg-paper p-4 sm:p-5">
+                            <h3 className="text-base">{item.title}</h3>
+                            <p className="mt-1 text-[0.95rem] leading-relaxed text-muted">{item.description}</p>
                           </div>
                         ))}
                       </div>
@@ -87,7 +93,7 @@ export function InstructorPlatform({ intro, phases }: InstructorPlatformProps) {
                   {/* Screenshot */}
                   {imageSrc && (
                     <div className="flex-shrink-0 lg:w-[45%]">
-                      <div className="overflow-hidden rounded-xl border border-sand shadow-[var(--shadow-sm)]">
+                      <div className="overflow-hidden rounded-[20px] border border-line transition-transform duration-700 hover:scale-[1.02]">
                         <Image
                           src={imageSrc}
                           alt={phase.subtitle || phase.title}

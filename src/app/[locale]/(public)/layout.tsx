@@ -54,10 +54,13 @@ export default async function PublicLayout({
           }),
         }}
       />
+      <div className="site flex min-h-screen flex-col">
       <Header
         locale={typedLocale}
         navItems={navItems}
         languageToggleName={dict.nav.languageToggle}
+        ctaText={dict.home.hero.ctaText}
+        brandName={dict.nav.brand}
       />
       <main className="flex-1">{children}</main>
       <Footer
@@ -69,6 +72,7 @@ export default async function PublicLayout({
         email={dict.footer.email}
         navItems={navItems}
       />
+      </div>
     </>
   );
 }
