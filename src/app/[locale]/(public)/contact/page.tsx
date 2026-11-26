@@ -33,7 +33,7 @@ export default async function ContactPage({
     <>
       <PageHero title={dict.contact.hero.title} subtitle={dict.contact.hero.description} />
 
-      <ContactForm />
+      <ContactForm text={dict.contact.form} locale={locale} />
     </>
   );
 }
