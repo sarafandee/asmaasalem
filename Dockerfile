@@ -1,7 +1,6 @@
 FROM node:22-alpine AS base
 
-# Install dependencies needed for native modules (better-sqlite3, etc.)
-RUN apk add --no-cache libc6-compat python3 make g++ && npm install -g npm@11
+RUN apk add --no-cache libc6-compat && npm install -g npm@11
 
 # --- Dependencies stage ---
 FROM base AS deps
@@ -30,9 +29,6 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Create data directory for SQLite
-RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
 
 USER nextjs
 EXPOSE 3000
