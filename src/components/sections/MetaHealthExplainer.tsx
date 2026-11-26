@@ -4,11 +4,9 @@ interface MetaHealthExplainerProps {
   tag: string;
   title: string;
   paragraphs: string[];
-  inhale: string;
-  exhale: string;
 }
 
-export function MetaHealthExplainer({ tag, title, paragraphs, inhale, exhale }: MetaHealthExplainerProps) {
+export function MetaHealthExplainer({ tag, title, paragraphs }: MetaHealthExplainerProps) {
   const [lead, second, ...rest] = paragraphs;
 
   return (
@@ -32,7 +30,7 @@ export function MetaHealthExplainer({ tag, title, paragraphs, inhale, exhale }: 
           </div>
         </ScrollReveal>
 
-        {/* Breathing: feel (inhale) and let go (exhale) */}
+        {/* Slow pulsing rings: purely decorative */}
         <ScrollReveal delay={0.15}>
           <div className="flex flex-col items-center gap-6">
             <div aria-hidden="true" className="relative grid aspect-square w-full max-w-[420px] place-items-center">
@@ -40,10 +38,6 @@ export function MetaHealthExplainer({ tag, title, paragraphs, inhale, exhale }: 
               <div className="anim-ring absolute inset-[12%] rounded-full border border-leaf-green" style={{ animationDelay: '0.4s' }} />
               <div className="anim-breathe absolute inset-[20%] rounded-full bg-leaf-green" />
               <div className="anim-breathe absolute inset-[36%] rounded-full bg-paper-deep" style={{ animationDelay: '0.15s' }} />
-            </div>
-            <div className="relative h-10 w-full text-center font-display text-xl font-semibold text-leaf-green-text">
-              <span className="anim-inhale absolute inset-0">{inhale}</span>
-              <span className="anim-exhale absolute inset-0 opacity-0">{exhale}</span>
             </div>
           </div>
         </ScrollReveal>

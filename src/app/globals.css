@@ -159,8 +159,6 @@ h3 { font-size: var(--font-size-md); }
   0%, 100% { transform: scale(0.8); opacity: 0.25; }
   50% { transform: scale(1.08); opacity: 0.6; }
 }
-@keyframes ls-inhale { 0%, 44% { opacity: 1; } 50%, 94% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes ls-exhale { 0%, 44% { opacity: 0; } 50%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes ls-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-16px); }
@@ -191,8 +189,6 @@ h3 { font-size: var(--font-size-md); }
 }
 .anim-breathe { animation: ls-breathe 10s ease-in-out infinite; }
 .anim-ring { animation: ls-ring 10s ease-in-out infinite; }
-.anim-inhale { animation: ls-inhale 10s ease-in-out infinite; }
-.anim-exhale { animation: ls-exhale 10s ease-in-out infinite; }
 .anim-float { animation: ls-float 6s ease-in-out infinite; }
 .anim-drift { animation: ls-drift 14s ease-in-out infinite; }
 .anim-marquee { animation: ls-marquee var(--marquee-duration, 48s) linear infinite; }
