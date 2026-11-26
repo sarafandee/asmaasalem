@@ -101,6 +101,44 @@
     "testimonials": {
       "title": "Success Stories from My Clients",
       "viewAll": "Read all stories"
+    },
+    "faq": {
+      "tag": "Questions",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "What is the L\u00fcscher Color Test?",
+          "a": "A psychological tool developed more than 70 years ago by Dr. Max L\u00fcscher, a Swiss doctor, psychotherapist and psychologist. Instead of asking direct questions, it reads your inner emotional state from the colours you choose."
+        },
+        {
+          "q": "What can the test reveal?",
+          "a": "It explores your overall mood, conscious emotions, expected behaviours, personality traits, relationships, self-perception, how you feel about responsibilities and tasks, and your outlook on the future. It can also point to areas of tension in daily life, hidden sources of frustration and the ways you cope."
+        },
+        {
+          "q": "What is Meta-Health?",
+          "a": "An approach that sees illness as connected to an inner conflict between mind and body. Thoughts and emotions trigger responses in the body, and unresolved emotional patterns can show up as physical symptoms: messages that point to what needs attention."
+        },
+        {
+          "q": "What sessions does Asmaa offer?",
+          "a": "Two kinds. An emotional analysis session uses the L\u00fcscher Color Diagnostic Test to understand your deeper emotions, the roots of your stress and your psychological needs. A Meta-Health session uses the same test to uncover the emotional root causes behind illness."
+        },
+        {
+          "q": "Is Asmaa certified?",
+          "a": "Yes. She is certified by the Max L\u00fcscher Institute in Switzerland to use the L\u00fcscher diagnostic test, holds a Master\u2019s in Holistic Healing by Color Therapy from the Arab Academy of Behavioral Science and an MTN Master\u2019s from Manage the Now Academy, and is a certified life coach with a diploma in mental health. The full list is on the Certifications & Biography page."
+        },
+        {
+          "q": "Which languages are sessions in?",
+          "a": "Arabic and English."
+        },
+        {
+          "q": "How do I book a session?",
+          "a": "Fill in the form on the Reach Out page and choose \u201cBook a session\u201d, or email info@asmaasalem.com."
+        },
+        {
+          "q": "I am a L\u00fcscher practitioner. Can the platform help me?",
+          "a": "Yes. The L\u00fcscher Support Platform automates the analysis of L\u00fcscher Color Test results for certified students and practitioners. It draws on L\u00fcscher\u2019s official books and Asmaa\u2019s training."
+        }
+      ]
     }
   },
   "about": {

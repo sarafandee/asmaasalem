@@ -10,6 +10,7 @@ import { ServiceCards } from '@/components/sections/ServiceCards';
 import { CTASection } from '@/components/sections/CTASection';
 import { AboutTeaser } from '@/components/sections/AboutTeaser';
 import { TestimonialMarquee } from '@/components/sections/TestimonialMarquee';
+import { FAQ } from '@/components/sections/FAQ';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -86,6 +87,22 @@ export default async function HomePage({
         title={home.testimonials.title}
         viewAll={home.testimonials.viewAll}
         testimonials={dict.testimonials.items}
+      />
+      <FAQ tag={home.faq.tag} title={home.faq.title} items={home.faq.items} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            inLanguage: typedLocale,
+            mainEntity: home.faq.items.map((item) => ({
+              '@type': 'Question',
+              name: item.q,
+              acceptedAnswer: { '@type': 'Answer', text: item.a },
+            })),
+          }),
+        }}
       />
       <CTASection
         title={home.cta.title}
