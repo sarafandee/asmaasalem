@@ -2,11 +2,8 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import clsx from 'clsx';
 import type { Locale } from '@/lib/i18n/config';
-import { ColorFlower } from './ColorFlower';
-import { LUSCHER_COLORS, type LuscherColor } from '@/lib/palette';
-import { useMood } from './MoodProvider';
+import { HeroFlower } from './HeroFlower';
 
 interface HeroBannerProps {
   locale: Locale;
@@ -17,15 +14,8 @@ interface HeroBannerProps {
   subtitle: string;
   ctaText: string;
   secondaryCta: string;
-  pick: {
-    prompt: string;
-    chose: string;
-    after: string;
-    colors: Record<LuscherColor, string>;
-  };
 }
 
-const PICK_ORDER: LuscherColor[] = ['blue', 'green', 'red', 'yellow'];
 const ease = [0.16, 1, 0.3, 1] as const;
 
 function rise(delay: number) {
@@ -45,13 +35,16 @@ export function HeroBanner({
   subtitle,
   ctaText,
   secondaryCta,
-  pick,
 }: HeroBannerProps) {
-  const { picked, pick: setPicked } = useMood();
-
   return (
     <section className="relative overflow-hidden bg-ink text-paper">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[minmax(0,1fr)] items-center gap-14 px-5 pb-20 pt-10 sm:px-8 md:pb-28 md:pt-16 lg:grid-cols-[1.1fr_1fr]">
+      {/* Pointer glow; HeroFlower moves and colours it. */}
+      <div
+        data-hero-glow
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-0 h-[600px] w-[600px] rounded-full opacity-0 transition-opacity duration-500"
+      />
+      <div className="relative mx-auto grid max-w-[1240px] grid-cols-[minmax(0,1fr)] items-center gap-14 px-5 pb-20 pt-10 sm:px-8 md:pb-28 md:pt-16 lg:grid-cols-[1.1fr_1fr]">
         {/* Text */}
         <div className="flex flex-col gap-7">
           <motion.span {...rise(0)} className="eyebrow flex items-center gap-3 text-paper/75">
@@ -85,51 +78,20 @@ export function HeroBanner({
           </motion.div>
         </div>
 
-        {/* Living flower + colour pick */}
+        {/* Living flower: reacts to the pointer */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.6, delay: 0.2, ease }}
-          className="flex flex-col items-center gap-7"
+          className="flex justify-center"
         >
           <div className="relative grid aspect-square w-full max-w-[460px] place-items-center">
             <div aria-hidden="true" className="anim-spin-rev absolute inset-0 rounded-full border border-dashed border-paper/20" />
             <div aria-hidden="true" className="anim-spin-rev absolute inset-[16%] rounded-full border border-paper/10" />
-            <div className="scale-[0.7] sm:scale-100">
-              <div className="anim-spin">
-                <ColorFlower petal={150} highlight={picked} />
-              </div>
+            {/* Out of flow, so the 426px flower never stretches the square on small screens. */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.7] sm:scale-100">
+              <HeroFlower />
             </div>
-          </div>
-
-          <div className="flex flex-col items-center gap-3.5 text-center">
-            <p className="text-base text-paper/80">{pick.prompt}</p>
-            <div className="flex gap-4" role="group" aria-label={pick.prompt}>
-              {PICK_ORDER.map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  aria-label={pick.colors[c]}
-                  aria-pressed={picked === c}
-                  onClick={() => setPicked(picked === c ? null : c)}
-                  className={clsx(
-                    'h-[52px] w-[52px] cursor-pointer rounded-full border-[3px] transition-transform duration-300 hover:scale-110',
-                    picked === c ? 'border-paper' : 'border-transparent'
-                  )}
-                  style={{ backgroundColor: LUSCHER_COLORS[c].fill }}
-                />
-              ))}
-            </div>
-            <p aria-live="polite" className="min-h-[3.5em] max-w-[30em] text-[0.95rem] text-paper/80">
-              {picked && (
-                <>
-                  <strong className="text-[var(--live-on-dark)]">
-                    {pick.chose.replace('{color}', pick.colors[picked])}
-                  </strong>{' '}
-                  {pick.after}
-                </>
-              )}
-            </p>
           </div>
         </motion.div>
       </div>

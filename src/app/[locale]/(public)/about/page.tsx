@@ -62,7 +62,7 @@ export default async function AboutPage({
         paragraphs={dict.about.bio.paragraphs}
       />
 
-      <CertificateGallery credentials={dict.about.credentials} />
+      <CertificateGallery credentials={dict.about.credentials} viewLabel={dict.about.viewCertificate} />
 
       {/* Career story */}
       <section className="bg-navy text-paper">
