@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { LUSCHER_COLORS, type LuscherColor } from '@/lib/palette';
 
 /** Petal order around the flower, matching the four leaves of the logo. */
-const PETALS: { color: LuscherColor; rotate: number }[] = [
+export const PETALS: { color: LuscherColor; rotate: number }[] = [
   { color: 'red', rotate: -135 },
   { color: 'green', rotate: -45 },
   { color: 'yellow', rotate: 45 },

@@ -7,7 +7,6 @@ import { MetaHealthExplainer } from '@/components/sections/MetaHealthExplainer';
 import { LuscherInfo } from '@/components/sections/LuscherInfo';
 import { ServiceCards } from '@/components/sections/ServiceCards';
 import { CTASection } from '@/components/sections/CTASection';
-import { MoodProvider } from '@/components/sections/MoodProvider';
 import { WordRibbon } from '@/components/sections/WordRibbon';
 import { AboutTeaser } from '@/components/sections/AboutTeaser';
 import { TestimonialMarquee } from '@/components/sections/TestimonialMarquee';
@@ -59,7 +58,7 @@ export default async function HomePage({
   const typedLocale = locale as Locale;
 
   return (
-    <MoodProvider>
+    <>
       <HeroBanner
         locale={typedLocale}
         kicker={home.hero.kicker}
@@ -69,7 +68,6 @@ export default async function HomePage({
         subtitle={home.hero.subtitle}
         ctaText={home.hero.ctaText}
         secondaryCta={home.hero.secondaryCta}
-        pick={home.pick}
       />
       <WordRibbon words={home.ribbon} />
       <MetaHealthExplainer
@@ -117,6 +115,6 @@ export default async function HomePage({
         buttonText={home.cta.buttonText}
         locale={typedLocale}
       />
-    </MoodProvider>
+    </>
   );
 }
