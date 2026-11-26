@@ -24,6 +24,10 @@ interface Credential {
   description: string;
   /** Scans of this credential's certificate; empty when there is none to show. */
   images: string[];
+  /** What the programme covered, shown as a list. */
+  expertise?: string[];
+  /** A short side remark, e.g. how the certificate is granted. */
+  note?: string;
 }
 
 interface CertificateGalleryProps {
@@ -128,6 +132,25 @@ export function CertificateGallery({ credentials, viewLabel }: CertificateGaller
                       )}
                       {cred.description && (
                         <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{cred.description}</p>
+                      )}
+                      {cred.expertise && cred.expertise.length > 0 && (
+                        <ul className="mt-3 flex flex-col gap-2 text-[0.95rem] leading-relaxed text-muted">
+                          {cred.expertise.map((item, j) => (
+                            <li key={j} className="flex gap-2.5">
+                              <span
+                                aria-hidden="true"
+                                className="leaf mt-[0.6em] h-2 w-2 flex-shrink-0"
+                                style={{ backgroundColor: LEAF_FILLS[j % LEAF_FILLS.length] }}
+                              />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {cred.note && (
+                        <p className="mt-3 border-s-2 border-[var(--color-accent)] ps-3 text-[0.9rem] leading-relaxed text-muted">
+                          {cred.note}
+                        </p>
                       )}
                     </div>
                   </div>
