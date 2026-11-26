@@ -82,6 +82,8 @@ export default async function HomePage({
         yearsLabel={home.luscher.yearsLabel}
         revealsTitle={home.luscher.revealsTitle}
         dimensions={home.luscher.dimensions}
+        emblemAlt={home.luscher.emblemAlt}
+        emblemCaption={home.luscher.emblemCaption}
       />
       <ServiceCards
         locale={typedLocale}

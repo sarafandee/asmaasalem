@@ -11,3 +11,14 @@ export const LUSCHER_COLORS = {
 } as const;
 
 export type LuscherColor = keyof typeof LUSCHER_COLORS;
+
+/**
+ * The logo's leaf colours: the brand palette for everything that is not the
+ * Lüscher test itself. `mark` is the highlighter tint used behind words.
+ */
+export const LEAF_COLORS = {
+  blue: { fill: '#8fc3ea', mark: 'rgba(143, 195, 234, 0.6)' },
+  green: { fill: '#8cc870', mark: 'rgba(140, 200, 112, 0.55)' },
+  red: { fill: '#f2665a', mark: 'rgba(242, 102, 90, 0.4)' },
+  yellow: { fill: '#ffd45e', mark: 'rgba(255, 212, 94, 0.6)' },
+} as const satisfies Record<LuscherColor, { fill: string; mark: string }>;

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import type { Locale } from '@/lib/i18n/config';
-import { LUSCHER_COLORS } from '@/lib/palette';
+import { LEAF_COLORS } from '@/lib/palette';
 
 interface TestimonialMarqueeProps {
   locale: Locale;
@@ -10,7 +10,7 @@ interface TestimonialMarqueeProps {
   testimonials: { name: string; quote: string }[];
 }
 
-const FILLS = [LUSCHER_COLORS.red.fill, LUSCHER_COLORS.blue.fill, LUSCHER_COLORS.yellow.fill, LUSCHER_COLORS.green.fill];
+const FILLS = [LEAF_COLORS.red.fill, LEAF_COLORS.blue.fill, LEAF_COLORS.yellow.fill, LEAF_COLORS.green.fill];
 
 /** Client stories drifting past; hovering pauses the drift. */
 export function TestimonialMarquee({ locale, title, viewAll, testimonials }: TestimonialMarqueeProps) {

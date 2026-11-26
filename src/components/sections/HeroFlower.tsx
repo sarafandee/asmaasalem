@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { LUSCHER_COLORS, type LuscherColor } from '@/lib/palette';
+import { LEAF_COLORS, type LuscherColor } from '@/lib/palette';
 import { PETALS } from './ColorFlower';
 
 const PETAL = 150;
@@ -15,14 +15,14 @@ function hexToRgb(hex: string): [number, number, number] {
   const n = parseInt(hex.slice(1), 16);
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
-const RGB = PETALS.map((p) => hexToRgb(LUSCHER_COLORS[p.color].fill));
+const RGB = PETALS.map((p) => hexToRgb(LEAF_COLORS[p.color].fill));
 
 /**
  * The hero's four-petal flower, alive under the pointer.
  *
  * Petals nearest the pointer swell and glow while the others soften, a light
- * in their blended colour follows the pointer, and the hero's accent (title
- * highlight, kicker rule, main button) takes the colour of the leading petal.
+ * in their blended colour follows the pointer, and the highlighter stroke under
+ * the title takes the colour of the leading petal. Petals use the logo's colours.
  * Touch screens have no hover, so a slow virtual pointer circles the flower
  * instead, and a tap sends out a ripple. Under reduced motion it stays still.
  *
@@ -94,16 +94,8 @@ export function HeroFlower() {
     const setLeader = (next: LuscherColor | null) => {
       if (next === leader) return;
       leader = next;
-      if (next) {
-        const c = LUSCHER_COLORS[next];
-        section.style.setProperty('--live-fill', c.fill);
-        section.style.setProperty('--live-ink', c.ink);
-        section.style.setProperty('--live-on-dark', c.onDark);
-      } else {
-        section.style.removeProperty('--live-fill');
-        section.style.removeProperty('--live-ink');
-        section.style.removeProperty('--live-on-dark');
-      }
+      if (next) section.style.setProperty('--live-mark', LEAF_COLORS[next].mark);
+      else section.style.removeProperty('--live-mark');
     };
 
     const frame = (now: number) => {
@@ -172,7 +164,7 @@ export function HeroFlower() {
           const [r, g, b] = mix.map((v) => Math.round(v / total));
           glow.style.opacity = String(strength);
           glow.style.transform = `translate(${glowPos.x}px, ${glowPos.y}px) translate(-50%, -50%)`;
-          glow.style.background = `radial-gradient(circle, rgb(${r} ${g} ${b} / 0.32), transparent 62%)`;
+          glow.style.background = `radial-gradient(circle, rgb(${r} ${g} ${b} / 0.4), transparent 62%)`;
         } else {
           glow.style.opacity = '0';
         }
@@ -213,13 +205,13 @@ export function HeroFlower() {
                   width: PETAL,
                   height: PETAL,
                   animationDelay: `${i * -1.7}s`,
-                  backgroundColor: LUSCHER_COLORS[p.color].fill,
+                  backgroundColor: LEAF_COLORS[p.color].fill,
                 }}
               />
             </div>
           </div>
         ))}
-        <div className="absolute left-1/2 top-1/2 h-[22px] w-[22px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-paper" />
+        <div className="absolute left-1/2 top-1/2 h-[22px] w-[22px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-paper ring-2 ring-logo-line" />
       </div>
       <div ref={rippleRef} className="pointer-events-none absolute inset-0" />
     </div>

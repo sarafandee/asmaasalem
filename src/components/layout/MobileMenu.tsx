@@ -45,13 +45,13 @@ export function MobileMenu({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-ink text-paper"
+          className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-paper text-ink"
         >
           {/* Close button */}
           <div className="flex justify-end p-6">
             <button
               onClick={onClose}
-              className="grid h-11 w-11 cursor-pointer place-items-center text-3xl leading-none text-paper/80 hover:text-paper"
+              className="grid h-11 w-11 cursor-pointer place-items-center text-3xl leading-none text-muted hover:text-ink"
               aria-label={closeLabel}
             >
               &times;
@@ -74,9 +74,7 @@ export function MobileMenu({
                     onClick={onClose}
                     className={clsx(
                       'font-display text-2xl font-semibold transition-colors duration-200 sm:text-3xl',
-                      isActive
-                        ? 'text-[var(--color-accent-on-dark)]'
-                        : 'text-paper/80 hover:text-paper'
+                      isActive ? 'text-navy mark' : 'text-muted hover:text-ink'
                     )}
                   >
                     {item.label}
@@ -93,14 +91,14 @@ export function MobileMenu({
                 <Link
                   href={toggleHref}
                   onClick={onClose}
-                  className="inline-flex h-12 items-center rounded-full border border-paper/35 px-6 text-lg text-paper/85 transition-colors duration-200 hover:border-paper hover:text-paper"
+                  className="inline-flex h-12 items-center rounded-full border border-line px-6 text-lg text-ink transition-colors duration-200 hover:border-ink"
                 >
                   {languageToggleName}
                 </Link>
                 <Link
                   href={ctaHref}
                   onClick={onClose}
-                  className="pill h-12 bg-[var(--color-accent)] px-6 text-lg text-ink"
+                  className="pill h-12 bg-navy px-6 text-lg text-paper"
                 >
                   {ctaText}
                 </Link>

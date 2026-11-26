@@ -20,13 +20,13 @@ export default async function NotFound() {
 
   return (
     <html lang={lang} dir={dir}>
-      <body style={{ fontFamily: 'Cairo, Arial, system-ui, sans-serif' }} className="flex min-h-screen items-center justify-center bg-charcoal text-white">
+      <body style={{ fontFamily: 'Cairo, Arial, system-ui, sans-serif' }} className="flex min-h-screen items-center justify-center bg-[#fbf7f0] text-[#1e2747]">
         <div className="text-center px-6">
-          <h1 className="text-7xl font-bold mb-2 text-[#ff523d]">404</h1>
-          <p className="text-xl text-white/70 mb-8">{message}</p>
+          <h1 className="text-7xl font-bold mb-2 text-[#1d3570]">404</h1>
+          <p className="text-xl text-[#535a72] mb-8">{message}</p>
           <Link
             href={href}
-            className="inline-block rounded-full bg-[#ff523d] px-8 py-3 text-white font-semibold transition-all hover:scale-105 hover:shadow-lg"
+            className="inline-block rounded-full bg-[#1d3570] px-8 py-3 text-[#fbf7f0] font-semibold transition-all hover:scale-105 hover:shadow-lg"
           >
             {buttonText}
           </Link>

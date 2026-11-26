@@ -1,8 +1,8 @@
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animation/ScrollReveal';
-import { LUSCHER_COLORS } from '@/lib/palette';
+import { LEAF_COLORS } from '@/lib/palette';
 
-const LEAF_FILLS = Object.values(LUSCHER_COLORS).map((c) => c.fill);
+const LEAF_FILLS = Object.values(LEAF_COLORS).map((c) => c.fill);
 
 interface TestimonialGridProps {
   testimonials: { name: string; quote: string }[];
