@@ -118,47 +118,51 @@
     },
     "credentials": [
       {
-        "title": "Bachelor's Degree in Computer Science",
-        "institution": "",
-        "description": "Foundational degree in computer science providing a strong analytical and technical background.",
-        "images": []
-      },
-      {
-        "title": "Certified Project Management Professional (PMP)",
-        "institution": "Project Management Institute (PMI)",
-        "description": "Professional certification in project management from the globally recognized Project Management Institute.",
-        "images": []
-      },
-      {
-        "title": "L\u00fcscher Color Diagnostic Test Certification",
-        "institution": "Max L\u00fcscher Institute, Switzerland",
-        "description": "The L\u00fcscher Color Diagnostic Test goes beyond traditional questioning methods, offering a precise and profound exploration of a client's emotional world. It identifies stress sources and illuminates emotions across various life dimensions, guiding individuals toward self-awareness and emotional balance.",
-        "images": [
-          "/images/certificates/cert-2.jpg"
-        ]
-      },
-      {
-        "title": "Master's Degree \u2013 Meta-Health & Color Therapy",
+        "title": "MTN Master \u2013 Master's Degree from Manage the Now Academy",
         "institution": "Manage the Now Academy (MTN)",
-        "description": "Diagnosing using Color Therapy and Application of Organic and Psychological Meta-Health.",
+        "description": "",
+        "expertise": [
+          "A deep understanding of the four core human values and the mechanisms needed to achieve them, supporting a balanced and fulfilling life.",
+          "Clarifying the dynamics of relationships between men and women, including insight into their emotional needs and ways of communicating.",
+          "Studying Meta-Health: exploring the precise links between mental and physical health, especially how emotional disturbances manifest as physical illness.",
+          "Studying psychological illnesses and behaviors, addressing the disturbed emotions behind them that hinder personal growth.",
+          "Studying the L\u00fcscher Color Diagnostic Test, using this powerful tool to analyze and interpret emotions effectively.",
+          "Deepening expertise in the L\u00fcscher test through an additional advanced course, with precise analyses and specific strategies for a more comprehensive emotional assessment."
+        ],
         "images": [
           "/images/certificates/cert-1.jpg"
         ]
       },
       {
-        "title": "Master's Degree \u2013 Holistic Healing by Color Therapy",
+        "title": "Max L\u00fcscher Foundation \u2013 Certified to Use the L\u00fcscher Diagnostic Test",
+        "institution": "Max L\u00fcscher Institute, Switzerland",
+        "description": "The Max L\u00fcscher Color Diagnostic Test goes beyond traditional questioning methods, offering a precise and profound exploration of the client's emotional world. It is an effective tool for identifying sources of stress and revealing the complex fabric of human emotions across every area of life, ultimately guiding individuals toward deeper self-awareness and balanced emotions.",
+        "note": "This certificate is granted after completing the required training hours and the required number of L\u00fcscher tests.",
+        "images": [
+          "/images/certificates/cert-2.jpg"
+        ]
+      },
+      {
+        "title": "Arab Academy of Behavioral Science \u2013 Master's Degree in Holistic Healing by Color Therapy",
         "institution": "Arab Academy of Behavioral Science (ABS)",
-        "description": "Specialized studies focused on holistic healing through color therapy methodologies.",
+        "description": "I joined this program to strengthen my expertise in interpreting and analyzing the L\u00fcscher Color Diagnostic Test, to explore the dynamics of the relationship between men and women, and to understand how the test can clarify what influences that relationship. I also gained a new perspective on Meta-Health, which broadened my knowledge considerably. The distinctive addition of this program was learning how to understand and resolve emotional traumas, a key factor in decoding illness.",
         "images": [
           "/images/certificates/cert-3.jpg"
         ]
       },
       {
-        "title": "Life Coach Diploma",
+        "title": "Academy of Modern Applied Psychology \u2013 Life Coach (Beginner to Advanced)",
         "institution": "Academy of Modern Applied Psychology",
-        "description": "Mental Health & Wellness specialization, providing professional coaching skills for supporting individuals on their personal development journeys.",
+        "description": "This program gave me a varied set of skills aimed at empowering clients to achieve their personal and professional growth: guiding individuals to set and reach meaningful goals, strengthening their self-awareness and nurturing a positive mindset. It also equipped me to support clients in overcoming obstacles, building resilience and developing effective strategies for personal development. I help clients navigate life transitions, improve their relationships and strengthen their overall well-being.",
         "images": [
-          "/images/certificates/cert-4.jpg",
+          "/images/certificates/cert-4.jpg"
+        ]
+      },
+      {
+        "title": "Academy of Modern Applied Psychology \u2013 Diploma in Mental Health and Wellness",
+        "institution": "Academy of Modern Applied Psychology",
+        "description": "This program offers in-depth training in exploring behavior and studying positive psychology, which together enable people to live psychologically healthy lives. It focuses on the limitless potential within everyone to improve and develop their lives, to mature, and to build psychological discipline. It also provides the understanding, wisdom and skills needed to support and empower people facing mental health challenges.",
+        "images": [
           "/images/certificates/cert-5.jpg"
         ]
       }
