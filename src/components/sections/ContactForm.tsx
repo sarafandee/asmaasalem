@@ -6,6 +6,7 @@ import { ScrollReveal } from '@/components/animation/ScrollReveal';
 import { sendContact, type ContactState, type ContactTopic } from '@/app/[locale]/(public)/contact/actions';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import { LEAF_COLORS } from '@/lib/palette';
+import { Turnstile } from '@/components/ui/Turnstile';
 
 type FormText = Dictionary['contact']['form'];
 
@@ -81,9 +82,14 @@ export function ContactForm({ text, locale }: { text: FormText; locale: string }
                 </Field>
 
                 <div className="flex flex-col items-start gap-4 sm:col-span-2">
-                  {(state.status === 'error' || state.status === 'invalid') && (
+                  <Turnstile language={locale} resetKey={state.attempt} />
+                  {(state.status === 'error' || state.status === 'invalid' || state.status === 'challenge') && (
                     <p key={state.attempt} role="alert" className="rounded-2xl bg-leaf-red/10 px-4 py-3 text-ink">
-                      {state.status === 'invalid' ? text.invalidMessage : text.errorMessage}
+                      {state.status === 'invalid'
+                        ? text.invalidMessage
+                        : state.status === 'challenge'
+                          ? text.challengeMessage
+                          : text.errorMessage}
                     </p>
                   )}
                   <button type="submit" disabled={pending} className="pill h-[56px] bg-navy px-10 text-lg text-paper disabled:opacity-60">

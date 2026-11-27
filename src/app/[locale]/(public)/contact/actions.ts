@@ -5,7 +5,7 @@ import { headers } from 'next/headers';
 export type ContactTopic = 'general' | 'booking' | 'platform';
 
 export interface ContactState {
-  status: 'idle' | 'success' | 'error' | 'invalid';
+  status: 'idle' | 'success' | 'error' | 'invalid' | 'challenge';
   /** Increments on every submit so the form can tell two errors apart. */
   attempt: number;
 }
@@ -44,6 +44,30 @@ function field(form: FormData, name: string, max: number): string {
   return typeof value === 'string' ? value.trim().slice(0, max) : '';
 }
 
+/**
+ * Cloudflare Turnstile check. Required whenever TURNSTILE_SECRET_KEY is set;
+ * without it (local development) the check is skipped with a warning.
+ */
+async function passesTurnstile(token: string, ip: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
+  if (!secret) {
+    console.warn('[contact] TURNSTILE_SECRET_KEY is not set; skipping the bot check');
+    return true;
+  }
+  if (!token) return false;
+  try {
+    const body = new URLSearchParams({ secret, response: token });
+    if (ip !== 'unknown') body.set('remoteip', ip);
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body });
+    const data = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
+    if (!data.success) console.warn('[contact] Turnstile rejected a submission', data['error-codes']);
+    return data.success === true;
+  } catch (err) {
+    console.error('[contact] Turnstile request failed', err);
+    return false;
+  }
+}
+
 function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 }
@@ -73,6 +97,9 @@ export async function sendContact(prev: ContactState, form: FormData): Promise<C
   const h = await headers();
   const ip = h.get('cf-connecting-ip') ?? h.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   if (rateLimited(ip)) return { status: 'error', attempt };
+  if (!(await passesTurnstile(field(form, 'cf-turnstile-response', 2048), ip))) {
+    return { status: 'challenge', attempt };
+  }
 
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) {
