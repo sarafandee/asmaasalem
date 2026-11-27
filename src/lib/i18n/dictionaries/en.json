@@ -325,7 +325,8 @@
       "sendingText": "Sending\u2026",
       "successMessage": "Your message was sent successfully! We'll get back to you soon.",
       "errorMessage": "Something went wrong. Please try again.",
-      "invalidMessage": "Please fill in every required field with a valid email."
+      "invalidMessage": "Please fill in every required field with a valid email.",
+      "challengeMessage": "Please complete the security check above the Send button, then try again."
     }
   },
   "footer": {
